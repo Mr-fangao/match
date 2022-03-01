@@ -2,8 +2,10 @@
   <div id="app">
     <pageheader v-show="showNav"></pageheader>
     
-    <router-view v-on:childvalue="childvalbyvalue"></router-view>
+    <router-view  v-on:childvalue="childvalbyvalue"></router-view>
   </div>
+
+
 </template>
 
 <script>
@@ -48,7 +50,7 @@ export default {
     "page2":Page2,
     "page3":Page3,
     "index":index,
-    "pageleft":left
+    "pageleft":left,
     
   },
   
