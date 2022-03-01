@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js" type="text/javascript"></script>
+    <script src="js/echarts-wordcloud.min.js" type="text/javascript"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+    <div id="chart_box" style="width: 500px;height:229px;"></div>
+
+    <script>
+        var myChart1 = echarts.init(document.getElementById('chart_box'));
+
+        function mychart1(time) {
+            if (time == 'year1') {
+                var myData = [{
+                        "name": "4C大赛",
+                        "value": 2254
+                    }, {
+                        "name": "互联网+创新创业大赛",
+                        "value": 2501
+                    }, {
+                        "name": "服务外包创新创业大赛",
+                        "value": 489
+                    }, {
+                        "name": "大学生挑战杯",
+                        "value": 3045
+                    }, {
+                        "name": "大数据与人工智能应用竞赛",
+                        "value": 423
+                    }, {
+                        "name": "安徽省GIS应用技能大赛",
+                        "value": 563
+                    }, {
+                        "name": "易智瑞杯GIS软件开发竞赛",
+                        "value": 619
+                    }, {
+                        "name": "数学建模竞赛",
+                        "value": 819
+                    }, {
+                        "name": "智能汽车竞赛",
+                        "value": 453
+                    }, {
+                        "name": "物理实验竞赛",
+                        "value": 619
+                    }, {
+                        "name": "化学实验竞赛",
+                        "value": 1000
+                    }, {
+                        "name": "国际大学生创新创业大赛",
+                        "value": 619
+                    },
+
+
+                ]
+            } else {
+                alert(time);
+            };
+            //配置及数据
+            optionyear = {
+                title: {},
+                tooltip: {
+                    show: true
+                },
+                color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+                series: [{
+                    name: '频率',
+                    type: 'wordCloud',
+                    sizeRange: [10, 28],
+                    rotationRange: [-60, 90],
+
+                    drawOutOfBound: true,
+
+                    grid: {
+                        x: 20,
+                        y: 0,
+                        x2: 0,
+                        y2: 30,
+                        borderWidth: 10
+                    },
+                    textStyle: {
+                        normal: {
+                            fontFamily: 'sans-serif',
+                            fontWeight: 'bold',
+                            color: function() {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: myData
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart1.setOption(optionyear);
+        }
+    </script>
+    <script>
+        $(function() { //使用on进行事件绑定事件。
+            mychart1('year1');
+            $("select").on('click', function() {
+                if ($("select").val() == 1) {
+                    mychart1('year1');
+                } else if ($("select").val() == 2) {
+                    // mychart1.clear();
+                    mychart1('year2');
+                } else if ($("select").val() == 3) {
+                    // mychart1.clear();
+                    mychart1('year3');
+                }
+            });
+            $("#time_sec").on('click', function() {
+                myChart1.clear();
+                mychart1('time_sec');
+            });
+        });
+    </script>
+</body>
+
+</html>

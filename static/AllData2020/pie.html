@@ -1,0 +1,78 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=pie-nest
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 95%;width:95%">
+    <div id="container" style="height: 100%"></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        var option;
+        option = {
+            title: {
+                text: "2020-本科院校-竞赛类型",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+
+            },
+
+            series: [{
+                name: '竞赛类型',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '15',
+                        fontWeight: 'bold',
+                        color: '#fff'
+                    }
+                },
+                //color: ['#ee6666', '#fac858'],
+                grid: {
+                    x: 40,
+                    y: 50,
+                    x2: 30,
+                    y2: 50,
+                    borderWidth: 10
+                },
+
+                data: [{
+                    value: 768,
+                    name: '国赛'
+                }, {
+                    value: 6119,
+                    name: '省赛'
+                }, ]
+            }]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+    </script>
+</body>
+
+</html>

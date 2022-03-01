@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js" type="text/javascript"></script>
+    <script src="js/echarts-wordcloud.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        #year_data {
+            text-align: center;
+            text-align-last: center;
+            font-weight: 600;
+            width: 95px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="chart_box" style="width: 700px;height:290px;margin:0 auto;"></div>
+
+    <script>
+        var myChart1 = echarts.init(document.getElementById('chart_box'));
+
+        function mychart1(time) {
+            if (time == 'year1') {
+                var myData = [{
+                        "name": "大数据",
+                        "value": 268
+                    }, {
+                        "name": "人工智能",
+                        "value": 196
+                    }, {
+                        "name": "智慧农业",
+                        "value": 14
+                    }, {
+                        "name": "GIS",
+                        "value": 95
+                    }, {
+                        "name": "时空分析",
+                        "value": 9
+                    }, {
+                        "name": "知识图谱",
+                        "value": 35
+                    }, {
+                        "name": "云计算",
+                        "value": 49
+                    }, {
+                        "name": "遥感",
+                        "value": 133
+                    }, {
+                        "name": "机器学习",
+                        "value": 49
+                    }, {
+                        "name": "深度学习",
+                        "value": 184
+                    }, {
+                        "name": "数据可视化",
+                        "value": 104
+                    }, {
+                        "name": "互联网",
+                        "value": 75
+                    }, {
+                        "name": "机器人",
+                        "value": 238
+                    }, {
+                        "name": "智慧城市",
+                        "value": 10
+                    }, {
+                        "name": "智慧校园",
+                        "value": 26
+                    }, {
+                        "name": "智慧医疗",
+                        "value": 53
+                    }, {
+                        "name": "智能家居",
+                        "value": 123
+                    }, {
+                        "name": "AI技术",
+                        "value": 199
+                    },
+
+                ]
+            } else if (time == 'year2') {
+                var myData = [{
+                    "name": "GIS开发工程师",
+                    "value": 111
+                }, {
+                    "name": "web前端开发工程师",
+                    "value": 42
+                }, {
+                    "name": "Java开发工程师",
+                    "value": 42
+                }, {
+                    "name": "C++开发工程师",
+                    "value": 19
+                }, {
+                    "name": "前端开发工程师",
+                    "value": 15
+                }, {
+                    "name": "技术支持工程师",
+                    "value": 14
+                }, {
+                    "name": "GIS工程师",
+                    "value": 14
+                }, {
+                    "name": "售前工程师",
+                    "value": 14
+                }, {
+                    "name": "webgis开发工程师",
+                    "value": 13
+                }, {
+                    "name": "三维GIS开发工程师",
+                    "value": 11
+                }, {
+                    "name": "gis数据工程师",
+                    "value": 10
+                }, {
+                    "name": "Java高级开发工程师",
+                    "value": 10
+                }, {
+                    "name": "数据处理工程师",
+                    "value": 10
+                }, {
+                    "name": "软件工程师",
+                    "value": 9
+                }, {
+                    "name": "gis研发工程师",
+                    "value": 9
+                }, {
+                    "name": "项目经理",
+                    "value": 8
+                }, {
+                    "name": "运维开发工程师",
+                    "value": 8
+                }, {
+                    "name": "GIS数据处理工程师",
+                    "value": 7
+                }, {
+                    "name": "销售经理",
+                    "value": 7
+                }, {
+                    "name": "Java中级开发工程师",
+                    "value": 7
+                }, {
+                    "name": "WebGIS前端开发工程师",
+                    "value": 6
+                }, {
+                    "name": "产品经理",
+                    "value": 6
+                }, {
+                    "name": "林业助理工程师",
+                    "value": 6
+                }, {
+                    "name": "销售代表",
+                    "value": 6
+                }, {
+                    "name": "GIS项目经理",
+                    "value": 6
+                }, {
+                    "name": "土壤修复工程师",
+                    "value": 6
+                }, {
+                    "name": "软件开发工程师—应届硕士北京落户",
+                    "value": 6
+                }, {
+                    "name": "电力销售精英",
+                    "value": 6
+                }, {
+                    "name": "数据可视化高级工程师",
+                    "value": 5
+                }, {
+                    "name": "C++高级开发工程师",
+                    "value": 5
+                }, {
+                    "name": "区域销售经理",
+                    "value": 5
+                }, {
+                    "name": "系统开发工程师",
+                    "value": 5
+                }, {
+                    "name": "Web前端工程师",
+                    "value": 5
+                }, {
+                    "name": "java高级软件工程师",
+                    "value": 5
+                }, {
+                    "name": "中级Java软件工程师",
+                    "value": 5
+                }, {
+                    "name": "GIS销售代表",
+                    "value": 5
+                }, {
+                    "name": "三维GIS渲染引擎开发工程师",
+                    "value": 5
+                }, {
+                    "name": "销售助理",
+                    "value": 5
+                }, {
+                    "name": "GIS销售工程师",
+                    "value": 5
+                }, {
+                    "name": "工程地质,环境地质高级工程师",
+                    "value": 5
+                }, {
+                    "name": "高级前端开发工程师",
+                    "value": 5
+                }, {
+                    "name": "Web开发工程师",
+                    "value": 5
+                }, {
+                    "name": "数据工程师",
+                    "value": 5
+                }, {
+                    "name": "市场商务",
+                    "value": 5
+                }, {
+                    "name": "三维GIS研发工程师",
+                    "value": 5
+                }, {
+                    "name": "C++算法工程师",
+                    "value": 5
+                }, {
+                    "name": "售前技术支持工程师",
+                    "value": 5
+                }, {
+                    "name": "FESCO代央企招聘风资源评估岗",
+                    "value": 5
+                }, {
+                    "name": "规划设计师",
+                    "value": 5
+                }, {
+                    "name": "软件研发工程师-海洋测绘保障",
+                    "value": 5
+                }, {
+                    "name": "OpenGL开发工程师",
+                    "value": 4
+                }, {
+                    "name": "C++软件工程师",
+                    "value": 4
+                }, {
+                    "name": "IoT产品经理-企业应用",
+                    "value": 4
+                }, {
+                    "name": "gis技术支持(国防方向)",
+                    "value": 4
+                }, {
+                    "name": "Customer Support Engineer / Specialist(74152470)",
+                    "value": 4
+                }, {
+                    "name": "PTG-GIS大客户销售",
+                    "value": 4
+                }, {
+                    "name": "测绘工程师",
+                    "value": 4
+                }, {
+                    "name": "地图开发工程师",
+                    "value": 4
+                }, {
+                    "name": "三维GIS高级开发工程师",
+                    "value": 4
+                }, {
+                    "name": "地信(GIS)工程师",
+                    "value": 4
+                }, {
+                    "name": "售前支持工程师(安防行业)",
+                    "value": 4
+                }, {
+                    "name": "java中高级开发工程师",
+                    "value": 4
+                }, {
+                    "name": "研发项目经理(交通信息化)",
+                    "value": 4
+                }, {
+                    "name": "GIS软件工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS高级研发工程师",
+                    "value": 4
+                }, {
+                    "name": "互联网产品经理",
+                    "value": 4
+                }, {
+                    "name": "WebGL开发工程师",
+                    "value": 4
+                }, {
+                    "name": "景观园林设计师",
+                    "value": 4
+                }, {
+                    "name": "图形引擎高级开发工程师/专家 (MJ001817)",
+                    "value": 4
+                }, {
+                    "name": ".Net高级程序员",
+                    "value": 4
+                }, {
+                    "name": "售前支持经理",
+                    "value": 4
+                }, {
+                    "name": "行业销售经理",
+                    "value": 4
+                }, {
+                    "name": "运维工程师",
+                    "value": 4
+                }, {
+                    "name": "水影响评价设计师",
+                    "value": 4
+                }, {
+                    "name": "项目交付经理",
+                    "value": 4
+                }, {
+                    "name": "智慧楼宇产品经理-企业应用",
+                    "value": 4
+                }, {
+                    "name": "项目实施工程师",
+                    "value": 4
+                }, {
+                    "name": "项目运维经理",
+                    "value": 4
+                }, {
+                    "name": "软件工程实施",
+                    "value": 4
+                }, {
+                    "name": "三维gis引擎高级研发工程师",
+                    "value": 4
+                }, {
+                    "name": "1.项目经理(GIS方向)",
+                    "value": 4
+                }, {
+                    "name": "前端工程师",
+                    "value": 4
+                }, {
+                    "name": "服务端开发工程师",
+                    "value": 4
+                }, {
+                    "name": ".NET开发工程师",
+                    "value": 4
+                }, {
+                    "name": "高级售前工程师",
+                    "value": 4
+                }, {
+                    "name": "WEB前端可视化工程师",
+                    "value": 4
+                }, {
+                    "name": "CIM / 3D GIS 产品经理",
+                    "value": 4
+                }, {
+                    "name": "CIM项目经理",
+                    "value": 4
+                }, {
+                    "name": "技术支持(GIS)",
+                    "value": 4
+                }, {
+                    "name": "数据处理",
+                    "value": 4
+                }, {
+                    "name": "图形技术专家 (MJ004747)",
+                    "value": 4
+                }, {
+                    "name": "省区总监",
+                    "value": 4
+                }, {
+                    "name": "PTG-GIS技术总监",
+                    "value": 3
+                }, {
+                    "name": "WebGIS引擎开发工程师",
+                    "value": 3
+                }, {
+                    "name": "GIS产品经理(三维GIS)",
+                    "value": 3
+                }, {
+                    "name": "PTG-GIS技术支持工程师",
+                    "value": 3
+                }, {
+                    "name": "软件开发工程师",
+                    "value": 3
+                }, {
+                    "name": "技术支持工程师-008",
+                    "value": 3
+                }, {
+                    "name": "项目经理(智慧-北京kk)",
+                    "value": 3
+                }, {
+                    "name": "国际技术支持工程师",
+                    "value": 3
+                }]
+            } else if (time == 'year3') {
+                var myData = [{
+                    "name": "GIS开发工程师",
+                    "value": 65
+                }, {
+                    "name": "Web前端开发工程师",
+                    "value": 34
+                }, {
+                    "name": "项目经理",
+                    "value": 26
+                }, {
+                    "name": "前端开发工程师",
+                    "value": 25
+                }, {
+                    "name": "GIS数据工程师",
+                    "value": 22
+                }, {
+                    "name": "WebGis开发工程师",
+                    "value": 15
+                }, {
+                    "name": "Java开发工程师",
+                    "value": 13
+                }, {
+                    "name": "软件工程师",
+                    "value": 13
+                }, {
+                    "name": "数据处理工程师",
+                    "value": 13
+                }, {
+                    "name": "水利/水电工程师",
+                    "value": 12
+                }, {
+                    "name": ".NET开发工程师",
+                    "value": 12
+                }, {
+                    "name": "Web开发工程师",
+                    "value": 10
+                }, {
+                    "name": "给排水工程师",
+                    "value": 10
+                }, {
+                    "name": "产品经理",
+                    "value": 9
+                }, {
+                    "name": "GIS项目实施工程师",
+                    "value": 9
+                }, {
+                    "name": "测绘工程师",
+                    "value": 9
+                }, {
+                    "name": "GIS数据处理工程师",
+                    "value": 8
+                }, {
+                    "name": "大数据开发工程师",
+                    "value": 8
+                }, {
+                    "name": "三维WEBGIS开发工程师",
+                    "value": 7
+                }, {
+                    "name": "算法工程师",
+                    "value": 7
+                }, {
+                    "name": "GIS软件开发工程师",
+                    "value": 7
+                }, {
+                    "name": "智慧水务GIS工程师",
+                    "value": 6
+                }, {
+                    "name": "规划设计师",
+                    "value": 6
+                }, {
+                    "name": "土地规划师",
+                    "value": 6
+                }, {
+                    "name": "数据分析师",
+                    "value": 6
+                }, {
+                    "name": "三维开发工程师",
+                    "value": 6
+                }, {
+                    "name": "GIS 大数据平台研发工程师",
+                    "value": 6
+                }, {
+                    "name": "Java软件开发工程师",
+                    "value": 6
+                }, {
+                    "name": "三维GIS开发经理",
+                    "value": 6
+                }, {
+                    "name": "C++开发工程师(J10581)",
+                    "value": 6
+                }, {
+                    "name": "销售经理",
+                    "value": 5
+                }, {
+                    "name": "估价业务部实习生",
+                    "value": 5
+                }, {
+                    "name": "产品经理(GIS方向)",
+                    "value": 5
+                }, {
+                    "name": "软件开发工程师",
+                    "value": 5
+                }, {
+                    "name": "产品测试工程师",
+                    "value": 5
+                }, {
+                    "name": ".NET开发工程师 ",
+                    "value": 5
+                }, {
+                    "name": "GIS软件销售工程师",
+                    "value": 5
+                }, {
+                    "name": "二三维地图开发",
+                    "value": 5
+                }, {
+                    "name": "WEBGIS前端工程师",
+                    "value": 5
+                }, {
+                    "name": "GIS售前技术支持工程师",
+                    "value": 5
+                }, {
+                    "name": "GIS高级售前技术支持工程师",
+                    "value": 5
+                }, {
+                    "name": "环境工程师",
+                    "value": 5
+                }, {
+                    "name": "实施工程师",
+                    "value": 5
+                }, {
+                    "name": "生态设计工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS软件工程师",
+                    "value": 4
+                }, {
+                    "name": "给排水数学模型工程师",
+                    "value": 4
+                }, {
+                    "name": "三维研发工程师",
+                    "value": 4
+                }, {
+                    "name": "前端GIS开发",
+                    "value": 4
+                }, {
+                    "name": "测量员",
+                    "value": 4
+                }, {
+                    "name": "WebGL开发工程师",
+                    "value": 4
+                }, {
+                    "name": "高级售前技术支持工程师",
+                    "value": 4
+                }, {
+                    "name": "销售经理(软件)",
+                    "value": 4
+                }, {
+                    "name": "产品经理 (MJ002081)",
+                    "value": 4
+                }, {
+                    "name": "GIS研发工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS高级开发工程师",
+                    "value": 4
+                }, {
+                    "name": "土壤调查工程师",
+                    "value": 4
+                }, {
+                    "name": "环境影响评价技术人员",
+                    "value": 4
+                }, {
+                    "name": "GIS数据分析师",
+                    "value": 4
+                }, {
+                    "name": "大客户销售经理/项目型政府销售",
+                    "value": 4
+                }, {
+                    "name": "场地调查管培生",
+                    "value": 4
+                }, {
+                    "name": "生产计划专员",
+                    "value": 4
+                }, {
+                    "name": "软件产品经理",
+                    "value": 4
+                }, {
+                    "name": "主创设计师",
+                    "value": 4
+                }, {
+                    "name": "WebGIS研发工程师",
+                    "value": 4
+                }, {
+                    "name": "数据采集工程师",
+                    "value": 4
+                }, {
+                    "name": "Java中级开发工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS开发工程师 ",
+                    "value": 4
+                }, {
+                    "name": "项目需求分析/系统实施/系统配置工程师",
+                    "value": 4
+                }, {
+                    "name": "实施工程师 ",
+                    "value": 4
+                }, {
+                    "name": "环保咨询工程师",
+                    "value": 4
+                }, {
+                    "name": "售前总监",
+                    "value": 4
+                }, {
+                    "name": "研发总监",
+                    "value": 4
+                }, {
+                    "name": "销售副总监",
+                    "value": 4
+                }, {
+                    "name": "资深架构师",
+                    "value": 4
+                }, {
+                    "name": "3D数据工程师",
+                    "value": 4
+                }, {
+                    "name": "充气柜研发工程师(J10331)",
+                    "value": 4
+                }, {
+                    "name": "售前主管",
+                    "value": 4
+                }, {
+                    "name": "技术美工 Technical Artist",
+                    "value": 4
+                }, {
+                    "name": "OSG三维软件研发工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS中高级开发工程师",
+                    "value": 4
+                }, {
+                    "name": "专业模型工程师(中级)",
+                    "value": 4
+                }, {
+                    "name": "数据工程师",
+                    "value": 4
+                }, {
+                    "name": "BIM设计师",
+                    "value": 4
+                }, {
+                    "name": "方案架构师/智慧城市售前经理",
+                    "value": 4
+                }, {
+                    "name": "AM - 电力维护",
+                    "value": 4
+                }, {
+                    "name": "web图形开发工程师",
+                    "value": 4
+                }, {
+                    "name": "GIS开发经理",
+                    "value": 3
+                }, {
+                    "name": "GIS前端开发工程师",
+                    "value": 3
+                }, {
+                    "name": "城市规划师/规划师助理",
+                    "value": 3
+                }, {
+                    "name": "售前技术支持工程师",
+                    "value": 3
+                }, {
+                    "name": "项目工程师",
+                    "value": 3
+                }, {
+                    "name": "产品经理-嵌入式软件硬件方向",
+                    "value": 3
+                }, {
+                    "name": "解决方案经理",
+                    "value": 3
+                }, {
+                    "name": "渠道销售经理(BIM软件)",
+                    "value": 3
+                }, {
+                    "name": "net开发工程师(GIS)",
+                    "value": 3
+                }, {
+                    "name": "GIS分析师/分析师助理",
+                    "value": 3
+                }, {
+                    "name": "大客户经理",
+                    "value": 3
+                }, {
+                    "name": "项目经理助理",
+                    "value": 3
+                }, {
+                    "name": "销售经理(中高级)-负责安徽、江苏市场区域",
+                    "value": 3
+                }, {
+                    "name": "数据应用分析工程师",
+                    "value": 3
+                }]
+            } else {
+                alert(time);
+            };
+            //配置及数据
+            optionyear = {
+                title: {},
+                tooltip: {
+                    show: true
+                },
+                series: [{
+                    name: '频率',
+                    type: 'wordCloud',
+                    sizeRange: [10, 66],
+                    rotationRange: [-45, 90],
+                    textPadding: 0,
+                    autoSize: {
+                        enable: true,
+                        minSize: 10
+                    },
+                    textStyle: {
+                        normal: {
+                            color: function() {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: myData
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart1.setOption(optionyear);
+        }
+    </script>
+    <script>
+        $(function() { //使用on进行事件绑定事件。
+            mychart1('year1');
+            $("select").on('click', function() {
+                if ($("select").val() == 1) {
+                    mychart1('year1');
+                } else if ($("select").val() == 2) {
+                    // mychart1.clear();
+                    mychart1('year2');
+                } else if ($("select").val() == 3) {
+                    // mychart1.clear();
+                    mychart1('year3');
+                }
+            });
+            $("#time_sec").on('click', function() {
+                myChart1.clear();
+                mychart1('time_sec');
+            });
+        });
+    </script>
+</body>
+
+</html>

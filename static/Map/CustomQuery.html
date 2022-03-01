@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.21/"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>QueryTask | Sample | ArcGIS API for JavaScript 4.18</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(43, 41, 41, 0.1);
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        #loading {
+            visibility: hidden;
+        }
+        
+        .esri-legend--card__section {
+            width: 100px;
+            background-color: rgba(43, 41, 41, 0);
+        }
+        
+        .result {
+            width: 25%;
+            float: right;
+            background-color: rgba(0, 0, 0, 0.11);
+            z-index: 9999;
+            position: absolute;
+            top: 53%;
+            left: 1170px;
+            color: #fff;
+            background-color: #989c9f4d;
+        }
+        
+        .Result {
+            height: 30%;
+            width: 100%;
+            overflow: auto;
+            bottom: 0.5%;
+            left: 25%;
+            margin: auto;
+            z-index: 9999;
+            border-radius: 3px;
+            background-color: rgb(110, 110, 110 /0.3);
+            font-size: 12px;
+        }
+        
+        .query {
+            width: 25%;
+            height: 5%;
+            float: right;
+            background-color: rgba(0, 0, 0, 0.11);
+            z-index: 9999;
+            position: absolute;
+            top: 63.5%;
+            left: 1126px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        #divShowResult {
+            height: 30%;
+            overflow: auto;
+            position: absolute;
+            width: 75%;
+            bottom: 0.5%;
+            left: 25%;
+            z-index: 9999;
+            border-radius: 3px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            background-color: rgb(60 88 106 / 66%);
+            font-size: 12px;
+        }
+        
+        #divShowResult::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 0.1px;
+            height: 10px;
+        }
+        
+        #divShowResult::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px #d9d9d9;
+            background: #7e7d7d
+        }
+        
+        .esri-sketch__tool-section {
+            background-color: #fff
+        }
+        
+        #divShowResult::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        td,
+        th {
+            /* border-right: 1px solid gray; */
+            border-bottom: 1px solid gray;
+            font-weight: 400;
+            background-color: rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            color: white;
+            font-size: 13px;
+        }
+        
+        th {
+            border-right: 0px solid gray;
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 40px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        table {
+            margin: 0;
+            padding: 0;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 0.5px;
+            width: 100%;
+            background-color: rgb(110, 110, 110 /0.3);
+            font-size: 12px;
+        }
+        
+        td:first-child,
+        th:first-child {
+            position: sticky;
+            left: 0;
+            background-color: rgb(0, 0, 0 /0.1);
+            z-index: 1;
+        }
+        
+        thead tr th {
+            position: sticky;
+            top: 0;
+        }
+        
+        th:first-child {
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        a {
+            color: white;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        
+        .esri-widget {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        require([
+            "esri/widgets/Sketch",
+            "esri/Map",
+            "esri/layers/GraphicsLayer",
+            "esri/views/MapView",
+            "esri/Basemap",
+            "esri/layers/FeatureLayer",
+            "esri/views/draw/Draw",
+            "esri/Graphic",
+            "esri/tasks/IdentifyTask",
+            "esri/tasks/support/IdentifyParameters",
+            "esri/tasks/QueryTask",
+            "esri/tasks/support/Query",
+            "esri/symbols/SimpleLineSymbol",
+            "esri/symbols/SimpleFillSymbol",
+            "dojo/dom",
+            "dojo/on",
+            "esri/Color",
+            "esri/widgets/Expand",
+            "esri/widgets/Legend",
+            "esri/widgets/Search",
+            "esri/widgets/CoordinateConversion",
+            "esri/widgets/BasemapGallery",
+            "esri/widgets/ScaleBar",
+            "esri/widgets/Compass",
+            "esri/widgets/LayerList",
+            "esri/widgets/ScaleBar",
+            "esri/widgets/Compass",
+            "esri/rest/find",
+            "esri/rest/support/FindParameters"
+
+        ], function(Sketch, Map, GraphicsLayer, MapView, Basemap, FeatureLayer,
+            Draw, Graphic, IdentifyTask, IdentifyParameters, QueryTask, Query, SimpleLineSymbol, SimpleFillSymbol,
+            dom, on, Color, Expand, Legend, Search, CoordinateConversion, BasemapGallery, ScaleBar, Compass,
+            LayerList, ScaleBar, Compass, find,
+            FindParameters) {
+
+            //创建全国矢量图层（feature）
+            var countrylayer = new FeatureLayer({
+                // "https://services5.arcgis.com/OpFl5VJ2nf9GImPP/ArcGIS/rest/services/GISJob/FeatureServer/0"
+                url: "http://1.116.236.2:6080/arcgis/rest/services/4C大赛数据/MapServer/0",
+                title: null,
+                outFields: ["*"],
+                popupTemplate: {
+                    title: "{学校}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [{
+                            fieldName: "比赛名称",
+                            label: "比赛名称"
+                        }, {
+                            fieldName: "学校",
+                            label: "学校"
+                        }, {
+                            fieldName: "获奖时间",
+                            label: "获奖时间"
+                        }, {
+                            fieldName: "赛事级别",
+                            label: "赛事级别"
+                        }, {
+                            fieldName: "类别分组",
+                            label: "类别分组"
+                        }, {
+                            fieldName: "比赛题目",
+                            label: "比赛题目"
+                        }, {
+                            fieldName: "参赛学生1",
+                            label: "参赛学生"
+                        }, {
+                            fieldName: "第一指导老",
+                            label: "第一指导老师"
+                        }, {
+                            fieldName: "第二指导老",
+                            label: "第二指导老师"
+                        }, {
+                            fieldName: "获奖等级",
+                            label: "获奖等级"
+                        }, ]
+                    }]
+                }
+            });
+
+            var maplayer3 = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/4C大赛数据/MapServer",
+
+            });
+            var maplayer4 = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/anhuiborder/MapServer",
+
+            });
+            //实例化一个图形图层
+            const layer = new GraphicsLayer();
+            //创建地图对象
+            const map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [maplayer3, maplayer4, countrylayer, layer]
+            });
+            //渲染二维地图
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                zoom: 6,
+                center: [117.29251358116619, 31.91812360584148],
+            });
+            // 地图控件
+            //绘图小部件
+            const sketch = new Sketch({
+                layer: layer,
+                view: view,
+                creationMode: "update"
+            });
+            //向视图中添加绘图小部件
+            view.ui.add(sketch, "top-right");
+            //给视图小部件添加监听事件，监听它完成的时候
+            sketch.on("create", function(event) {
+                if (event.state === "complete") {
+                    //console.log(event);
+                    //使用graphic.geometry 去查询相交特征
+                    //console.log(event.graphic.geometry);
+                    //使用geometry（QueryTask）
+                    queryTask(event.graphic.geometry);
+                }
+            });
+
+            //空间查询（QueryTask）
+            function queryTask(geometry) {
+                // console.log(geometry);
+                var china =
+                    "http://1.116.236.2:6080/arcgis/rest/services/4C大赛数据/MapServer/0";
+                var qTask = new QueryTask({
+                    url: china //全国矢量
+                });
+                var query = new Query({
+                    returnGeometry: true,
+                    outFields: ["*"], //结果要素包含的属性字段 
+                });
+                query.geometry = geometry;
+                //console.log(query.geometry);
+                //空间参考信息
+                query.outSpatialReference = map.spatialReference;
+                //查询的标准，此处代表和geometry相交的图形都要返回
+                query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
+                //执行空间查询
+                qTask.execute(query).then(showQueryResult);
+            }
+            //执行查询
+            function showQueryResult(queryResult) {
+                //console.log(queryResult)
+                //创建线符号					
+                var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([0, 255, 0, 0.5]));
+                //创建面符号
+                var fill = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new Color([0, 255, 0]));
+                if (queryResult.features.length == 0) {
+                    dom.byId("divShowResult").innerHTML = "查询结果为空！";
+                    return;
+                };
+
+                var htmls = "";
+                if (queryResult.features.length >= 1) {
+                    htmls = htmls + "<table style=\"text-align:center;\">"; //创建一个表，使用了转义字符
+                    htmls = htmls +
+                        "<thead> <tr id=\"tbHead\"> <th style=\"width: 100px;\">学校</th> <th style=\"width: 70px;\">获奖时间</th> <th style=\"width: 70px;\">赛事级别</th><th style=\"width: 70px;\">获奖等级</th><th style=\"width: 120px;\">类别分组</th><th style=\"width: 300px;\">比赛题目</th><th style=\"width: 60px;\">参赛学生</th> <th style=\"width: 60px;\">第一指导老师</th><th style=\"width: 60px;\">第二指导老师</th></tr> <thead>"; //创建数据行
+                    for (var i = 0; i < queryResult.features.length; i++) {
+                        //得到graphic	
+                        var graphic = queryResult.features[i];
+                        //给图形赋予符号	
+
+                        //graphic.setSymbol(fill);  //api3.×
+                        graphic.symbol = fill; //api 4.x				
+                        //添加到地图从而实现高亮效果						
+                        view.graphics.add(graphic); //api 4.x
+
+                        //获得名称信息，此处应和shp的属性表对应						
+                        var sname = graphic.attributes["学校"];
+                        Time = graphic.attributes["获奖时间"];
+                        Level = graphic.attributes["赛事级别"];
+                        Type = graphic.attributes["类别分组"];
+                        Gname = graphic.attributes["比赛题目"];
+                        Student = graphic.attributes["参赛学生1"];
+                        Teacher1 = graphic.attributes["第一指导老"];
+                        Teacher2 = graphic.attributes["第二指导老"];
+                        Price = graphic.attributes["获奖等级"];
+
+
+                        htmls = htmls +
+
+                            "<td><a href=\"#\">" + sname + "</a></td>" +
+                            "<td><a href=\"#\">" + Time + "</a></td>" +
+                            "<td><a href=\"#\">" + Level + "</a></td>" +
+                            "<td><a href=\"#\">" + Price + "</a></td>" +
+                            "<td><a href=\"#\">" + Type + "</a></td>" +
+                            "<td><a href=\"#\">" + Gname + "</a></td>" +
+                            "<td><a href=\"#\">" + Student + "</a></td>" +
+                            "<td><a href=\"#\">" + Teacher1 + "</a></td>" +
+                            "<td><a href=\"#\">" + Teacher2 + "</a></td>";
+
+
+                        htmls = htmls + "</tr>";
+                    }
+                    htmls = htmls + "</table>";
+                    dom.byId("divShowResult").innerHTML = htmls;
+                }
+            };
+            var loadingImg = document.getElementById("loading");
+
+            // Create a URL pointing to a map service
+            var findUrl =
+                "http://1.116.236.2:6080/arcgis/rest/services/4C大赛数据/MapServer";
+
+            // Set parameters to only query the Counties layer by name
+            var params = new FindParameters({
+                layerIds: [0],
+                searchFields: ["学校"]
+            });
+
+            // Executes on each button click
+            function doFind() {
+                // Display loading gif to provide the user feedback on search progress
+                loadingImg.style.visibility = "visible";
+                // Set the search text to the value of the input box
+                params.searchText = document.getElementById("inputTxt").value;
+                // The find() performs a LIKE SQL query based on the provided text value
+                // showResults() is called once the promise returned here resolves
+                find.find(findUrl, params).then(showResults).catch(rejectedPromise);
+            }
+
+            var resultsTable = document.getElementById("tbl");
+
+            // Executes when the promise from find.execute() resolves
+            function showResults(response) {
+                var results = response.results;
+
+                // Clear the cells and rows of the table to make room for new results
+                resultsTable.innerHTML = "";
+
+                // If no results are returned from the find, notify the user
+                if (results.length === 0) {
+                    resultsTable.innerHTML = "<i>No results found</i>";
+                    loadingImg.style.visibility = "hidden";
+                    return;
+                }
+
+                // Set up row for descriptive headers to display results
+                var topRow = resultsTable.insertRow(0);
+                var cell1 = topRow.insertCell(0);
+                var cell2 = topRow.insertCell(1);
+                var cell3 = topRow.insertCell(2);
+                var cell4 = topRow.insertCell(3);
+                var cell5 = topRow.insertCell(4);
+                var cell6 = topRow.insertCell(5);
+                var cell7 = topRow.insertCell(6);
+                var cell8 = topRow.insertCell(7);
+                var cell9 = topRow.insertCell(8);
+                var cell10 = topRow.insertCell(9);
+                cell1.innerHTML = "<b>学校</b>";
+                cell2.innerHTML = "<b>比赛名称</b>";
+                cell3.innerHTML = "<b>获奖时间</b>";
+                cell4.innerHTML = "<b>赛事级别</b>";
+                cell5.innerHTML = "<b>类别分组</b>";
+                cell6.innerHTML = "<b>比赛题目</b>";
+                cell7.innerHTML = "<b>参赛学生</b>";
+                cell8.innerHTML = "<b>指导老师</b>";
+                cell9.innerHTML = "<b>指导老师</b>";
+                cell10.innerHTML = "<b>获奖等级</b>";
+                // Loop through each result in the response and add as a row in the table
+                results.forEach(function(findResult, i) {
+                    // Get each value of the desired attributes
+                    var school = findResult.feature.attributes["学校"];
+                    var cname = findResult.feature.attributes["比赛名称"];
+                    var time = findResult.feature.attributes["获奖时间"];
+                    var level = findResult.feature.attributes["赛事级别"];
+                    var type = findResult.feature.attributes["类别分组"];
+                    var title = findResult.feature.attributes["比赛题目"];
+                    var sname = findResult.feature.attributes["参赛学生1"];
+                    var teacher1 = findResult.feature.attributes["第一指导老"];
+                    var teacher2 = findResult.feature.attributes["第二指导老"];
+                    var price = findResult.feature.attributes["获奖等级"];
+
+                    // Add each resulting value to the table as a row
+                    var row = resultsTable.insertRow(i + 1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
+                    var cell9 = row.insertCell(8);
+                    var cell10 = row.insertCell(9);
+                    cell1.innerHTML = school;
+                    cell2.innerHTML = cname;
+                    cell3.innerHTML = time;
+                    cell4.innerHTML = level;
+                    cell5.innerHTML = type;
+                    cell6.innerHTML = title;
+                    cell7.innerHTML = sname;
+                    cell8.innerHTML = teacher1;
+                    cell9.innerHTML = teacher2;
+                    cell10.innerHTML = price;
+                });
+                loadingImg.style.visibility = "hidden";
+            }
+
+            // Executes each time the promise from find.execute() is rejected.
+            function rejectedPromise(error) {
+                console.error("Promise didn't resolve: ", error.message);
+            }
+
+            // Run doFind() when button is clicked
+            document.getElementById("findBtn").addEventListener("click", doFind);
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="viewDiv">
+
+    </div>
+    <div class="Result">
+        <div id="divShowResult" v-if="isShow">
+            <table id="tbl"></table>
+        </div>
+    </div>
+    <div id="divShowResult2">
+    </div>
+    <div class="result">
+
+        简单查询：<input type="text" id="inputTxt" size="40" value="滁州学院" style="width: 213px; background-color: rgb(11 47 68 / 41%);color: #fff;border-bottom: aqua; height: 30px;    margin-top: 18px;
+        text-align: center;" />
+        <input type="button" class="el-icon-search" value="查询" id="findBtn" /><i class="el-icon-search"></i>
+        <img id="loading" src="https://developers.arcgis.com/javascript/latest/sample-code/find/live/ajax-loader.gif" />
+        <br/>
+        <br/>
+        <table id="tbl"></table>
+    </div>
+    <div class="query" id="optionsDiv">
+
+
+    </div>
+</body>
+
+</html>

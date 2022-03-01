@@ -1,0 +1,168 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category-stack
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/dataTool.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/map/js/world.js"></script>
+        -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                text: "2020-安徽省高校-AB类赛事-参赛榜",
+                left: '20%',
+
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "15",
+                    fontWeight: "150",
+
+                }
+            },
+            grid: {
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 0,
+                borderWidth: 10
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    // Use axis to trigger tooltip
+                    type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                }
+            },
+            legend: {
+                left: 'right',
+                top: '0%',
+                textStyle: {
+                    color: "#FFFFFF",
+                },
+                icon: 'rect',
+                itemHeight: 14,
+                itemWidth: 14,
+
+            },
+
+            grid: {
+                left: '25%',
+                right: '5%',
+                bottom: '7%',
+                top: '15%'
+
+            },
+            xAxis: {
+                type: 'value',
+                show: false,
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                }
+
+            },
+            yAxis: {
+                type: 'category',
+                data: [
+
+                    '安徽农业大学',
+                    '安徽信息工程学院',
+                    '池州学院',
+                    '安徽财经大学',
+                    '蚌埠学院',
+                    '滁州学院',
+                    '铜陵学院',
+                    '合肥工业大学'
+                ],
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                },
+                axisTick: {
+                    show: false
+                }
+            },
+            color: ['#fac858', '#73c0de'],
+
+            series: [{
+                    barwidth: 5,
+                    name: '国赛',
+                    type: 'bar',
+                    stack: 'total',
+
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [90, 34, 101, 110, 130, 294, 375, 284]
+                }, {
+                    barwidth: 5,
+                    name: '省赛',
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true,
+                        position: 'right',
+                        valueAnimation: true
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [563, 588, 641, 703, 800, 894, 965, 1075]
+                }
+
+
+
+            ]
+        };
+
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js" type="text/javascript"></script>
+</head>
+<style>
+    #year_data {
+        text-align: center;
+        text-align-last: center;
+        font-weight: 600;
+    }
+</style>
+
+<body>
+    <div>
+        <span style="color: white;">
+				&nbsp;&nbsp;&nbsp;历年各赛事获奖人数&nbsp;&nbsp;&nbsp;&nbsp;请选择赛事:
+			</span>
+        <select id="year_data" style="width: 176px;outline: none;text-align: center;">
+				<option value="1" class="active opt">4C大赛</option>
+				<option value="2" class="opt">安徽省GIS技能大赛</option>
+				<option value="3" class="opt">易智瑞GIS开发比赛</option>
+			
+			</select>
+    </div>
+    <div id="chart_box" style="width: 100%;height:220px;margin:0 auto;"></div>
+
+    <script>
+        var myChart1 = echarts.init(document.getElementById('chart_box'));
+
+        function mychart1(time) {
+            if (time == 'year1') {
+                var renShu = [650, 315, 1368, 1540, 1382];
+            } else if (time == 'year2') {
+                var renShu = [70, 182, 64, 45, 70];
+            } else if (time == 'year3') {
+                var renShu = [150, 232, 201, 154, 190, ];
+            } else {
+                //请求时间段数据
+                //模拟时间段数据
+                alert(time);
+                var renShu = [80.00, 79.10, 81.45, 90.20, 89.30];
+            };
+            //配置及数据
+            optionyear = {
+                title: {
+                    text: "",
+                    padding: [10, 100, 10, 450], // 标题位置
+                    textStyle: {
+                        color: '#ebebeb',
+                        fontSize: 18,
+                    }
+                },
+                grid: {
+                    x: 60,
+                    y: 30,
+                    x2: 0,
+                    y2: 0,
+
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    show: true, //是否显示提示框组件 默认为true
+                    axisPointer: {
+                        lineStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0,
+                                    color: 'rgba(0, 255, 233,0)'
+                                }, {
+                                    offset: 0.5,
+                                    color: 'rgba(255, 255, 255,1)',
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(0, 255, 233,0)'
+                                }],
+                                global: false
+                            }
+                        },
+                    },
+                },
+                grid: {
+                    top: '25%',
+                    left: '4%',
+                    right: '2%',
+                    bottom: '22%',
+                },
+                legend: {
+                    data: ['']
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ["2016", "2017", "2018", "2019", "2020"],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    axisLabel: {
+                        interval: 0,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '',
+
+                    splitNumber: 5,
+                    splitLine: {
+                        show: false,
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.1)'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        // formatter: '{value}%',
+                    }
+                }, ],
+                series: [{
+                    name: '月薪',
+                    type: 'line',
+                    showAllSymbol: true,
+                    symbol: 'circle',
+                    symbolSize: 10,
+                    data: renShu, //数据
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(0, 255, 255, 0.6)', //改变柱状的颜色
+                            borderWidth: 1,
+                            borderColor: "#fff",
+                            shadowColor: 'rgba(0, 0, 0, .3)',
+                            shadowBlur: 1,
+                            shadowOffsetY: 3,
+                            shadowOffsetX: 3,
+                            label: {
+                                show: true, //开启显示
+                                position: 'top', //在上方显示
+                                formatter: '{c}', //百分比显示
+                                textStyle: { //数值样式
+                                    color: '#ffff00', //柱上数据颜色
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(0, 255, 255, 0.3)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(108,80,243,0)'
+                            }], false),
+                            shadowColor: 'rgba(69, 252, 255, 0.9)',
+                            shadowBlur: 20
+                        }
+                    },
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart1.setOption(optionyear);
+        }
+    </script>
+    <script>
+        $(function() { //使用on进行事件绑定事件。
+            mychart1('year1');
+
+            $("select").on('click', function() {
+                if ($("select").val() == 1) {
+                    mychart1('year1');
+                } else if ($("select").val() == 2) {
+                    // mychart1.clear();
+                    mychart1('year2');
+                } else if ($("select").val() == 3) {
+                    // mychart1.clear();
+                    mychart1('year3');
+                }
+            });
+            $("#time_sec").on('click', function() {
+                //alert('请求时间段的数据');
+                myChart1.clear(); //清空原来的图表
+                mychart1('time_sec'); //重新加载图表，之前必须要清空原来的，否则没有动画效果
+            });
+        });
+    </script>
+</body>
+
+</html>

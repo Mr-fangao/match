@@ -1,0 +1,187 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=mix-line-bar
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/dataTool.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+    <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/map/js/world.js"></script>
+        -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+
+        var option;
+        option = {
+            title: {
+                text: "2020-安徽省-AB类赛事-获奖数/获奖率",
+                left: 'center',
+
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "15",
+                    fontWeight: "150",
+
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+
+            legend: {
+                data: ['获奖数', '获奖率'],
+                textStyle: {
+                    color: "#FFFFFF",
+                },
+                left: 'right'
+            },
+            grid: {
+                left: '10%',
+                right: '10%',
+                bottom: '10%',
+                top: '15%'
+
+            },
+            xAxis: [{
+                type: 'category',
+                data: [
+                    '全国大学生广告艺术大赛',
+                    '中国大学生计算机设计大赛',
+                    '安徽省互联网+大学生创新创业大赛',
+                    '安徽省GIS应用技能大赛',
+                    '全国大学生数学建模竞赛',
+                    '安徽省大学生服务外包创新创业大赛',
+                    '大数据与人工智能应用竞赛'
+                ],
+                axisPointer: {
+                    type: 'shadow'
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '',
+                min: 0,
+                max: 2500,
+                interval: 500,
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                },
+            }, {
+
+                type: 'value',
+                name: '',
+                min: 0,
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                max: 1,
+                interval: 0.3,
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                },
+            }],
+            series: [{
+                    textStyle: {
+                        color: "#FFFFFF",
+                    },
+
+                    barWidth: 30,
+                    name: '获奖数',
+                    type: 'bar',
+                    data: [2255, 1011, 624, 515, 275, 143, 70],
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                0,
+                                1,
+                                0,
+                                0, [{
+                                    offset: 0,
+                                    color: '#4889fb', // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#15b3ff', // 100% 处的颜色
+                                }, ],
+                                false
+                            ),
+                        },
+                    },
+
+                    yAxisIndex: 0,
+
+                },
+
+
+                {
+                    color: '#ffd300',
+                    name: '获奖率',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: [0.102, 0.213, 0.16, 0.123, 0.101, 0.21, 0.31],
+                    lineStyle: {
+                        color: '#ffd300',
+                    },
+                }
+            ]
+        };
+
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+    <div id="main" style="width: 520x;height:230px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: "2020-滁州学院-计算机设计大赛-各类型获奖数",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            color: ['#91cc55'],
+
+            tooltip: {
+                textStyle: {
+                    color: "#FFFFFF",
+                }
+            },
+            grid: {
+                x: 40,
+                y: 30,
+                x2: 30,
+                y2: 50,
+                borderWidth: 10
+            },
+
+            color: ['orange'],
+            dataset: {
+                // 提供一份数据。
+                source: [{
+                        name: '大数据组',
+                        value: 121,
+
+                    }, {
+                        name: '机器音乐',
+                        value: 195,
+
+                    }, {
+                        name: '人工智能',
+                        value: 249,
+
+                    }, {
+                        name: '软件外包',
+                        value: 63,
+
+                    }, {
+                        name: '软件应用',
+                        value: 648,
+
+                    }, {
+                        name: '数字媒体',
+                        value: 2049,
+
+                    }, {
+                        name: '微课辅助',
+                        value: 686,
+
+                    }, {
+                        name: '数据可视化',
+                        value: 1329,
+
+                    }
+
+
+                ]
+            },
+            // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+            xAxis: {
+                type: 'category',
+                barWidth: 100,
+
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+                    }
+                }
+            },
+            // 声明一个 Y 轴，数值轴。
+            yAxis: {
+                type: 'value',
+                min: 0,
+                max: 2500,
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+            series: [{
+                    type: 'bar',
+                    barWidth: '50 %'
+                },
+
+
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

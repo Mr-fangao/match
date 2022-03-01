@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+    <div id="main" style="width: 520x;height:210px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: "2020-本科院校-竞赛-比赛获奖数",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            color: ['#91cc55'],
+            tooltip: {
+                textStyle: {
+                    color: "#fff",
+                }
+            },
+            grid: {
+                x: 40,
+                y: 30,
+                x2: 30,
+                y2: 50,
+                borderWidth: 10
+            },
+            dataZoom: [{ // 这个dataZoom组件，默认控制x轴。
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 10, // 左边在 10% 的位置。
+                end: 60, // 右边在 60% 的位置。
+                bottom: '0%', //组件离容器下侧的距离,'20%' 
+            }],
+            dataset: {
+                // 提供一份数据。
+                source: [{
+                        "比赛名称": "中国大学生计算机设计大赛",
+                        "获奖数": "3464"
+                    }, {
+                        "比赛名称": "互联网+大学生创新创业大赛",
+                        "获奖数": "1647"
+                    }, {
+                        "比赛名称": "安徽省GIS技能大赛",
+                        "获奖数": "600"
+                    }, {
+                        "比赛名称": "大学生服务外包创新创业大赛",
+                        "获奖数": "576"
+                    }, {
+                        "比赛名称": "大数据AI竞赛",
+                        "获奖数": "421"
+                    }, {
+                        "比赛名称": "易智瑞杯",
+                        "获奖数": "321"
+                    }, {
+                        "比赛名称": "安徽省挑战杯课外学术比赛",
+                        "获奖数": "234"
+                    }, {
+                        "比赛名称": "中国软件杯开发比赛",
+                        "获奖数": "225"
+                    }, {
+                        "比赛名称": "中国大学生GIS应用技能大赛",
+                        "获奖数": "159"
+                    },
+
+                ]
+            },
+            // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+            xAxis: {
+                type: 'category',
+                barWidth: 100,
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                }
+
+            },
+            // 声明一个 Y 轴，数值轴。
+            yAxis: {
+                type: 'value',
+
+
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+            series: [{
+                    type: 'bar',
+                    barWidth: '50 %'
+                },
+
+
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Table_Simple CSS for HTML tables</title>
+
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <table style="border: 1" id="tb">
+            <tr>
+                <td>name</td>
+                <td>比赛题目</td>
+
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script src="jquery.js" charset="utf-8"></script>
+<script>
+    window.onload = function() {
+        $.ajax({
+            type: "GET",
+            url: "data/json.txt",
+            dataType: "json",
+            success: function(result) {
+                let json = result;
+                console.log(json);
+                for (i = 0; i < json.length; i++) {
+                    var trTD = "<tr><td>" + json[i].name + "</td><td>" + json[i].age + "</td></tr>";
+                    $("#tb").append(trTD);
+                }
+            },
+            error: function() {
+                alert("失败了");
+            }
+        });
+    }();
+</script>
+
+</html>

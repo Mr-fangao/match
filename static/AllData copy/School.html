@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+    <div id="main" style="width: 520x;height:210px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: "ALL-安徽省-计算机设计大赛-获奖数排名",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            color: ['#91cc55'],
+
+            tooltip: {
+                textStyle: {
+                    color: "#FFFFFF",
+                }
+            },
+            grid: {
+                x: 40,
+                y: 30,
+                x2: 30,
+                y2: 50,
+                borderWidth: 10
+            },
+            dataZoom: [{ // 这个dataZoom组件，默认控制x轴。
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 0, // 左边在 10% 的位置。
+                end: 15, // 右边在 60% 的位置。
+                bottom: '0%', //组件离容器下侧的距离,'20%' 
+            }],
+
+
+
+            // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+            xAxis: {
+                type: 'category',
+                barWidth: 100,
+                data: [
+                    "安徽大学",
+                    "滁州学院",
+                    "合肥工业大学",
+                    "安徽农业大学",
+                    "安徽师范大学",
+                    "安庆师范大学",
+                    "安徽医科大学",
+                    "安徽信息工程学院",
+                    "安徽工程大学",
+                    "安徽师范大学皖江学院",
+                    "安徽大学江淮学院",
+                    "黄山学院",
+                    "安徽新华学院",
+                    "安徽建筑大学",
+                    "铜陵学院",
+                    "合肥工业大学（宣城校区）",
+                    "亳州学院",
+                    "淮北师范大学",
+                    "淮南师范学院",
+                    "安徽理工大学",
+                    "皖西学院",
+                    "池州学院",
+                    "巢湖学院",
+                    "皖南医学院",
+                    "安徽三联学院",
+                    "合肥师范学院",
+                    "淮南联合大学",
+                    "安徽工业大学",
+                    "安徽财经大学",
+                    "陆军炮兵防空兵学院",
+                    "合肥学院",
+                    "安徽艺术学院",
+                    "中国人民解放军陆军军官学院",
+                    "安徽文达信息工程学院",
+                    "蚌埠医学院",
+                    "安徽中医药大学",
+                    "中国人民解放军国防科技大学电子对抗学院",
+                    "安徽农业大学经济技术学院",
+                    "安徽科技学院",
+                    "阜阳师范大学",
+                    "安徽外国语学院",
+                    "宿州学院",
+                    "合肥工业大学宣城校区",
+                    "蚌埠学院",
+                    "马鞍山学院",
+                    "皖江工学院",
+                    "阜阳师范大学信息工程学院",
+
+
+                ],
+
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+                    }
+                }
+            },
+            // 声明一个 Y 轴，数值轴。
+            yAxis: {
+                type: 'value',
+                min: 0,
+                max: 300,
+                splitLine: {
+                    show: false
+                }, //去除网格线
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+            series: [{
+                name: '三等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [
+                    84, 57, 74, 51, 48, 47, 34, 54, 55, 35, 46, 39, 24, 54, 35, 35, 30, 32,
+                    46, 8, 27, 30, 33, 17, 11, 21, 23, 28, 19, 18, 17, 18, 8, 17, 6, 10, 10,
+                    6, 0, 8, 6, 5, 6, 0, 2, 3, 0
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#5470c6'
+                    }
+                }
+            }, {
+                name: '二等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [
+                    91, 108, 57, 64, 56, 59, 55, 54, 50, 42, 28, 43, 42, 36, 31, 21, 29, 35,
+                    27, 25, 19, 21, 23, 11, 15, 17, 15, 9, 17, 12, 15, 11, 12, 8, 9, 11, 7,
+                    10, 4, 6, 1, 6, 1, 4, 2, 0, 0
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#3FBB49'
+                    }
+                }
+            }, {
+                name: '一等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [
+                    70, 61, 35, 24, 27, 25, 23, 21, 19, 23, 30, 20, 17, 15, 14, 17, 12, 9,
+                    12, 12, 14, 10, 7, 9, 7, 5, 6, 9, 4, 6, 4, 5, 4, 5, 3, 1, 3, 1, 3, 1, 3,
+                    0, 2, 0, 1, 0, 0
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#FF8849'
+                    }
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

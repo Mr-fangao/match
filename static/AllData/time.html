@@ -1,0 +1,113 @@
+<html style="height: 100%">
+
+<head>
+    <base href="<%=basePath%>">
+    <title>堆叠柱状图</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js" type="text/javascript"></script>
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+        //基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: "ALL-本科院校-竞赛-赛事获奖数",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+
+            xAxis: {
+                data: [
+                    '大数据与人工智能应用竞赛',
+                    '安徽省大学生GIS应用技能大赛',
+                    '安徽省大学生服务外包创新创业大赛',
+                    '中国大学生计算机设计大赛',
+                    '安徽省“互联网+”大学生创新创业大赛',
+                    '安徽省大学生GIS技能大赛',
+                    '全国大学生广告艺术大赛',
+                    '全国大学生数学建模竞赛',
+                ],
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                }
+            },
+            grid: {
+                x: 40,
+                y: 30,
+                x2: 30,
+                y2: 60,
+                borderWidth: 10
+            },
+            dataZoom: [{ // 这个dataZoom组件，默认控制x轴。
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 0, // 左边在 10% 的位置。
+                end: 100, // 右边在 60% 的位置。
+                bottom: '2%', //组件离容器下侧的距离,'20%' 
+            }],
+            yAxis: {
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                }
+            },
+            series: [{
+                name: '三等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [280, 150, 500, 1237, 450, 600, 3582, 440],
+                itemStyle: {
+                    normal: {
+                        color: '#5470c6'
+                    }
+                }
+            }, {
+                name: '二等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [200, 80, 320, 1219, 520, 280, 2101, 443],
+                itemStyle: {
+                    normal: {
+                        color: '#3FBB49'
+                    }
+                }
+            }, {
+                name: '一等奖',
+                type: 'bar',
+                stack: '获奖等级',
+                data: [98, 48, 165, 599, 175, 120, 1066, 194],
+                itemStyle: {
+                    normal: {
+                        color: '#FF8849'
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

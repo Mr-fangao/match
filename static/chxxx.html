@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        #year_data {
+            text-align: center;
+            text-align-last: center;
+            font-weight: 600;
+            width: 95px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="chart_box" style="width: 320px;height:290px;margin:0 auto;"></div>
+
+    <script>
+        var myChart1 = echarts.init(document.getElementById('chart_box'));
+
+        function mychart1(time) {
+            if (time == 'year1') {
+                var myData = [{
+                    value: [9.87, 14.59, 10.29, 10.01, 12.58, 11.43, 10.81, 13.53, 12.02, 12.26],
+                    name: '行业平均薪资(K/月)'
+                }]
+            } else if (time == 'year2') {
+                var myData = [{
+                    value: [9.87, 14.59, 10.29, 10.01, 12.58, 11.43, 10.81, 13.53, 12.02, 12.26],
+                    name: '行业平均薪资(K/月)'
+                }]
+            } else if (time == 'year3') {
+                var myData = [{
+                    value: [9.87, 10.59, 10.29, 10.01, 12.58, 14.43, 10.81, 13.53, 12.02, 12.26],
+                    name: '行业平均薪资(K/月)'
+                }]
+            } else {
+                alert(time);
+            };
+            //配置及数据
+
+
+            optionyear = {
+                title: {},
+                radar: {
+                    center: ['48%', '45%'],
+                    radius: 60,
+                    name: {
+                        textStyle: {
+                            color: '#fff',
+                            borderRadius: 3,
+                            padding: [3, 5]
+                        }
+                    },
+                    indicator: [{
+                        name: '大数据',
+                        max: 15
+                    }, {
+                        name: 'GIS',
+                        max: 15
+                    }, {
+                        name: '人工智能',
+                        max: 15
+                    }, {
+                        name: '深度学习',
+                        max: 15
+                    }, {
+                        name: '互联网',
+                        max: 15
+                    }, {
+                        name: '智慧城市',
+                        max: 15
+                    }, {
+                        name: '数据分析',
+                        max: 15
+                    }, {
+                        name: '机器学习',
+                        max: 15
+                    }, {
+                        name: '数据可视化',
+                        max: 15
+                    }, {
+                        name: '遥感',
+                        max: 15
+                    }, ]
+                },
+
+                series: [{
+                    name: '竞赛主题',
+                    type: 'radar',
+                    areaStyle: {
+                        normal: {}
+                    },
+                    data: myData
+                }]
+            };
+            myChart1.setOption(optionyear);
+        }
+    </script>
+    <script>
+        $(function() { //使用on进行事件绑定事件。
+            mychart1('year1');
+            $("select").on('click', function() {
+                if ($("select").val() == 1) {
+                    mychart1('year1');
+                } else if ($("select").val() == 2) {
+                    // mychart1.clear();
+                    mychart1('year2');
+                } else if ($("select").val() == 3) {
+                    // mychart1.clear();
+                    mychart1('year3');
+                }
+            });
+            $("#time_sec").on('click', function() {
+                myChart1.clear();
+                mychart1('time_sec');
+            });
+        });
+    </script>
+</body>
+
+</html>

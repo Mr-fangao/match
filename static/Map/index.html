@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.17/"></script>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #infoDiv {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+        }
+        
+        .right {
+            width: 420px;
+            height: 60%;
+            background-color: #ffffff2d;
+            position: absolute;
+            top: 10px;
+            left: 1100px;
+            z-index: 1000;
+        }
+        
+        .esri-widget__table {
+            color: #fff;
+        }
+        
+        .right-top {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            width: 400px;
+            color: #FFF;
+            background-color: #ffffff09;
+            height: 300px;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        .esri-select {
+            background-color: transparent;
+            color: aliceblue
+        }
+        
+        .esri-widget {
+            background-color: rgb(110 110 110 / 30%);
+            color: #ffffff;
+        }
+    </style>
+
+    <script>
+        require([
+            "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/widgets/Legend", "esri/widgets/Expand",
+            "esri/widgets/Home", "esri/widgets/BasemapToggle", "esri/smartMapping/labels/clusters", "esri/smartMapping/popup/clusters", "esri/core/promiseUtils"
+        ], function(
+            Map, MapView, FeatureLayer, Legend, Expand,
+            Home, BasemapToggle, clusterLabelCreator, clusterPopupCreator, promiseUtils
+        ) {
+            const serviceUrl = "http://1.116.236.2:6080/arcgis/rest/services/%E8%81%9A%E7%B1%BB/MapServer";
+            const layer = new FeatureLayer({
+                url: serviceUrl,
+                title: null,
+                outFields: ["*"],
+
+            });
+            var maplayer = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/æ€¿‡/MapServer",
+
+            });
+
+            const map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [maplayer, layer]
+            });
+
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [117.29251358116619, 31.91812360584148],
+                zoom: 6
+            });
+
+
+
+            let homeBtn = new Home({
+                view: view
+            });
+            view.ui.add(homeBtn, "top-left");
+
+
+
+            const legend = new Legend({
+                view: view,
+                container: "legendDiv"
+            });
+
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+
+
+</body>
+
+</html>

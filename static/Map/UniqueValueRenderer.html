@@ -1,0 +1,202 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>
+        Visualize data with class breaks | Sample | ArcGIS API for JavaScript 4.21
+    </title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-widget__table {
+            color: #fff;
+        }
+        
+        .right-top {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            width: 400px;
+            color: #FFF;
+            background-color: #ffffff09;
+            height: 300px;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        .esri-legend--card__section {
+            width: 100px;
+            background-color: rgba(43, 41, 41, 0.8);
+            overflow: auto;
+        }
+        
+        .esri-widget {
+            background-color: rgba(37, 36, 36, 0.8);
+            color: #fff
+        }
+        
+        .esri-widget__heading {
+            color: #fff
+        }
+    </style>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/widgets/Legend"
+        ], (Map, MapView, FeatureLayer, Legend) => {
+
+            const less1 = {
+                type: "simple-marker", // 获奖数少于200的高校
+                color: "#fffcd4",
+                style: "solid",
+                width: 10,
+                outline: {
+                    width: 0,
+                    color: [255, 255, 255, 0.5]
+                }
+            };
+
+            const less2 = {
+                type: "simple-marker", // 获奖数高于200小于400的高校
+                color: "#b1cdc2",
+                style: "solid",
+                width: 20,
+
+            };
+
+            const more3 = {
+                type: "simple-marker", // 获奖数高于400小于600的高校
+                color: "#38627a",
+                style: "solid",
+                width: 30,
+
+            };
+
+            const more4 = {
+                type: "simple-marker", // 获奖数高于600的高校
+                color: "#0d2644",
+                style: "solid",
+                width: 40,
+
+            };
+            const renderer = {
+                type: "class-breaks", // 定义渲染器类型及各类型
+                field: "获奖数",
+                legendOptions: {
+                    title: ""
+                },
+                classBreakInfos: [{
+                    minValue: 0,
+                    maxValue: 200,
+                    symbol: less1,
+                    label: "< 200"
+                }, {
+                    minValue: 201,
+                    maxValue: 400,
+                    symbol: less2,
+                    label: "200-400"
+                }, {
+                    minValue: 401,
+                    maxValue: 600,
+                    symbol: more3,
+                    label: "400-600"
+                }, {
+                    minValue: 601,
+                    maxValue: 1000,
+                    symbol: more4,
+                    label: "> 800"
+                }]
+            };
+
+            const seattleLayer = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/Schools/MapServer",
+                minScal: 2000000000, //比例尺最小
+                maxScal: 3500000, //比例尺最大
+
+                title: "安徽省计算机设计大赛获奖数",
+                renderer: renderer,
+                popupTemplate: {
+                    // 定义弹窗
+                    title: "{学校}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [{
+                            fieldName: "学校",
+                            label: "学校"
+                        }, {
+                            fieldName: "办学层次",
+                            label: "办学层次"
+                        }, {
+                            fieldName: "类型",
+                            label: "类型"
+                        }, {
+                            fieldName: "获奖数",
+                            label: "获奖数"
+                        }, ]
+                    }]
+                },
+
+            });
+            //添加边界
+            var maplayer = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/聚类/MapServer",
+
+            });
+            //实例化底图
+            const map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [maplayer, seattleLayer]
+            });
+            //实例化默认视角
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [117.29251358116619, 31.91812360584148],
+                zoom: 6
+            });
+            //添加图例
+            const legend = new Legend({
+                view: view
+            });
+
+            view.ui.add(legend, "bottom-left");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>

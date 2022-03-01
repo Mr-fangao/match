@@ -1,0 +1,216 @@
+.title1 {
+    width: 100%;
+    height: 10%;
+    font-size: 20px;
+}
+
+.people1 {
+    text-align: center;
+    color: rgb(168, 196, 12);
+    font-size: 15px;
+    margin-top: 30px;
+    white-space: nowrap;
+    margin-left: 60px
+}
+
+.people2 {
+    text-align: center;
+    color: rgb(168, 196, 12);
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 60px
+}
+
+#left {
+    float: left;
+    width: 50%;
+    height: 45%;
+    /* padding: 5px; */
+    background-color: rgb(58 83 134 / 15%);
+}
+
+#right {
+    float: right;
+    width: 50%;
+    height: 45%;
+    /* padding: 17px; */
+    background-color: rgb(58 83 134 / 15%);
+}
+
+#left1 {
+    float: left;
+    width: 49.5%;
+    height: 52%;
+    margin-top: 2px;
+    /* padding: 5px; */
+    background-color: rgb(58 83 134 / 15%);
+}
+
+#right1 {
+    float: right;
+    width: 49.5%;
+    height: 52%;
+    margin-top: 2px;
+    /* padding: 5px; */
+    background-color: rgb(58 83 134 / 15%);
+}
+
+.text1 {
+    font-size: 15px;
+    color: rgb(196, 184, 12);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text {
+    font-size: 15px;
+    color: rgb(196, 12, 12);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.data {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.percent {
+    margin-top: 30px;
+    width: 80%;
+    text-align: center;
+}
+
+.percent1 {
+    margin-top: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.cellege {
+    width: 50%;
+    float: left;
+    margin-top: 15px;
+}
+
+.cellege1 {
+    width: 50%;
+    float: right;
+    margin-top: 15px;
+}
+
+.alt {
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: rgb(30, 180, 130);
+    color: rgba(65, 82, 235, 0.836);
+}
+
+.alt1 {
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: rgb(30, 180, 130);
+    color: rgba(235, 65, 65, 0.836);
+}
+
+.introduce {
+    height: 35%;
+    font-size: 20px;
+    /* font-family: fangsong; */
+    font-weight: 500;
+    color: white;
+    font-style: unset;
+    padding: 3px;
+}
+
+.stitle {
+    font-size: 20px;
+    /* font-family: fangsong; */
+    font-weight: 500;
+    color: white;
+    font-style: unset;
+    padding: 0px;
+    text-align: center;
+}
+
+.sintroduce {
+    font-size: 15px;
+    font-weight: 200;
+    color: white;
+    font-style: unset;
+    padding: 5px;
+}
+
+.map {
+    height: 50%;
+    margin: 5px
+}
+
+#div1 {
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+}
+
+#div2 {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#div3 {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.one {
+    color: orange;
+    font-size: 25px;
+    margin-bottom: 0;
+    min-height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    margin-top: 5px;
+    white-space: normal;
+}
+
+.two {
+    color: orange;
+    font-size: 25px;
+    margin-bottom: 0;
+    min-height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    margin-top: 5px;
+    white-space: normal;
+}
+
+.three {
+    color: orange;
+    font-size: 25px;
+    margin-bottom: 0;
+    min-height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    margin-top: 5px;
+    white-space: normal;
+}
+
+.four {
+    color: orange;
+    font-size: 25px;
+    margin-bottom: 0;
+    min-height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    margin-top: 5px;
+    white-space: normal;
+}

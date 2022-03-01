@@ -1,0 +1,179 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>安徽省计算机设计大赛</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/dark/main.css" />
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-widget__table {
+            color: #fff;
+        }
+        
+        .right-top {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            width: 400px;
+            color: #FFF;
+            background-color: #ffffff09;
+            height: 300px;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        .esri-legend--card__section {
+            width: 100px;
+            background-color: rgba(43, 41, 41, 0.8);
+            overflow: auto;
+        }
+        
+        .esri-widget {
+            background-color: rgba(37, 36, 36, 0.8);
+            color: #fff
+        }
+        
+        .esri-widget__heading {
+            color: #fff
+        }
+    </style>
+
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+        require([
+            "esri/WebMap",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/renderers/DotDensityRenderer",
+            "esri/widgets/Legend",
+        ], (
+            WebMap,
+            MapView,
+            FeatureLayer,
+            DotDensityRenderer,
+            Legend,
+        ) => {
+            //实例化底图
+            const map = new WebMap({
+                portalItem: {
+                    id: "4886f04424b44f64a11507ec6faae445"
+                },
+
+            });
+            //实例化视图
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [117.29251358116619, 31.91812360584148],
+                zoom: 6,
+                highlightOptions: {
+                    fillOpacity: 0,
+                    color: [50, 50, 50]
+                },
+                popup: { //设置弹窗
+                    dockEnabled: true,
+                    dockOptions: {
+                        position: "top-right",
+                        breakpoint: false
+                    }
+                },
+                //比例尺限制
+                constraints: {
+                    maxScale: 35000
+                }
+            });
+            //定义分类及实例化渲染器
+            view.when().then(() => {
+                const dotDensityRenderer = new DotDensityRenderer({
+                    dotValue: 0.1,
+                    outline: null,
+                    referenceScale: 577790,
+                    legendOptions: {
+                        unit: "获奖数"
+                    },
+                    attributes: [{
+                        field: "Join_Count",
+                        color: "#f23c3f",
+                        label: "获奖数"
+                    }, ]
+                });
+
+                // 添加地图服务
+                const url =
+                    "http://1.116.236.2:6080/arcgis/rest/services/Dot/MapServer";
+                const layer = new FeatureLayer({
+                    url: url,
+                    minScale: 20000000,
+                    maxScale: 35000,
+                    title: "",
+                    popupTemplate: {
+                        title: "{Prefecture}",
+                        content: [{
+                            type: "fields",
+                            fieldInfos: [{
+                                fieldName: "Join_Count",
+                                label: "获奖数",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            }, {
+                                fieldName: "Prefecture",
+                                label: "城市",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            }, ]
+                        }]
+                    },
+                    renderer: dotDensityRenderer
+                });
+                //添加边界
+                var maplayer = new FeatureLayer({
+                    url: "http://1.116.236.2:6080/arcgis/rest/services/聚类/MapServer",
+
+                });
+                map.add(maplayer);
+                map.add(layer);
+                //添加图例
+                const legend = new Legend({
+                    view: view
+                });
+
+                view.ui.add(legend, "bottom-left");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>

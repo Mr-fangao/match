@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+    <div id="main" style="width: 520x;height:250px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            legend: {
+                left: "right",
+                textStyle: {
+                    color: "#FFFFFF",
+                }
+            },
+            title: {
+                text: "安徽省-高校-4C大赛获奖信息",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            tooltip: {
+                textStyle: {
+                    color: "#FFFFFF",
+                }
+            },
+            grid: {
+                x: 30,
+                y: 30,
+                x2: 0,
+                y2: 60,
+                borderWidth: 10
+            },
+            dataZoom: [{ // 这个dataZoom组件，默认控制x轴。
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 10, // 左边在 10% 的位置。
+                end: 60 // 右边在 60% 的位置。
+            }],
+            dataset: {
+                // 提供一份数据。
+                source: [
+                    ['product', '省赛', '国赛'],
+                    ['安徽大学', 300, 69],
+                    ['合肥工业大学', 183, 28],
+                    ['滁州学院', 336, 58],
+                    ['安徽信息工程学院', 203, 36],
+                    ['安徽医科大学', 158, 28],
+                    ['安徽建筑大学', 126, 26],
+                    ['安徽农业大学', 195, 33],
+                    ['淮北师范大学', 126, 24],
+                    ['黄山学院', 130, 26],
+                    ['安徽新华学院', 167, 24],
+
+
+                ]
+            },
+            // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+            xAxis: {
+                type: 'category',
+
+                barWidth: 100,
+
+
+
+                splitLine: {
+                    show: false
+                }, //去除网格线
+
+
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff', //坐标值得具体的颜色
+
+                    }
+                }
+
+            },
+            // 声明一个 Y 轴，数值轴。
+            yAxis: {
+                type: 'value',
+
+
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+            series: [{
+                    type: 'bar'
+                }, {
+                    type: 'bar'
+                },
+
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

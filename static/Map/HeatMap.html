@@ -1,0 +1,156 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>
+        Visualize points with a heatmap | Sample | ArcGIS API for JavaScript 4.21
+    </title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-widget__table {
+            color: #fff;
+        }
+        
+        .right-top {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            width: 400px;
+            color: #FFF;
+            background-color: #ffffff09;
+            height: 300px;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        .esri-legend--card__section {
+            width: 100px;
+            background-color: rgba(43, 41, 41, 0.8);
+            overflow: auto;
+        }
+        
+        .esri-widget {
+            background-color: rgba(37, 36, 36, 0.8);
+            color: #fff
+        }
+        
+        .esri-widget__heading {
+            color: #fff
+        }
+    </style>
+
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/layers/FeatureLayer",
+            "esri/views/MapView",
+            "esri/widgets/Legend"
+        ], (Map, FeatureLayer, MapView, Legend) => {
+            const url =
+                "http://1.116.236.2:6080/arcgis/rest/services/4C%E5%A4%A7%E8%B5%9B%E6%95%B0%E6%8D%AE/MapServer/0";
+
+            // Paste the url into a browser's address bar to download and view the attributes
+            // in the CSV file. These attributes include:
+            // * mag - magnitude
+            // * type - earthquake or other event such as nuclear test
+            // * place - location of the event
+            // * time - the time of the event
+
+            const template = {
+                title: "{学校}",
+                content: "图例"
+            };
+
+            // The heatmap renderer assigns each pixel in the view with
+            // an intensity value. The ratio of that intensity value
+            // to the maxPixel intensity is used to assign a color
+            // from the continuous color ramp in the colorStops property
+
+            const renderer = {
+                type: "heatmap",
+                blurRadius: 10,
+                colorStops: [{
+                    ratio: 0,
+                    color: "rgba(0, 255, 150, 0)"
+                }, {
+                    ratio: 0.5,
+                    color: "rgb(250, 250, 0)"
+                }, {
+                    ratio: 0.85,
+                    color: "rgb(250, 150, 0)"
+                }, {
+                    ratio: 0.95,
+                    color: "rgb(255, 50, 0)"
+                }],
+            };
+            var maplayer = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/%E8%81%9A%E7%B1%BB/MapServer",
+                title: "安徽省"
+            });
+            const layer = new FeatureLayer({
+                url: url,
+                title: "图例",
+                copyright: "USGS Earthquakes",
+                popupTemplate: template,
+                renderer: renderer
+            });
+
+            const map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [maplayer, layer]
+            });
+
+
+            const view = new MapView({
+                container: "viewDiv",
+                center: [117.29251358116619, 31.91812360584148],
+                zoom: 6,
+                map: map
+            });
+
+            view.ui.add(
+                new Legend({
+                    view: view
+                }),
+                "bottom-left"
+            );
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-1.9.min.js"></script>
+</head>
+
+<body style="height: 100%; margin: 0">
+    <a href="" style="display: none" id="telHref"><button id="subBtn" type="button"></button></a>
+    <div id="container" style="height:100%;width:98%"></div>
+    <script type="text/javascript" src="all.js"></script>
+    <script type="text/javascript" src="anhui.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'item',
+            },
+            grid: {
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 0,
+                borderWidth: 10
+            },
+            dataRange: {
+                x: 'left',
+                y: 'center',
+                splitList: [{
+                    start: 300
+                }, {
+                    start: 100,
+                    end: 300
+                }, {
+                    start: 0,
+                    end: 100
+                }],
+                color: ['#ff4500', '#fff600', '#8fd1ed'], //#38B0D
+                title: {
+                    text: '获奖数',
+
+                },
+                textStyle: {
+                    color: "#FFFFFF",
+                }
+            },
+            title: {
+                text: "2020-安徽省-大学生计算机设计大赛-比赛获奖分布",
+                left: "center",
+                textStyle: {
+                    color: "#fff",
+                    fontFamily: "Microsoft YaHei",
+                    fontSize: "16",
+                    fontWeight: "150"
+                }
+            },
+            textStyle: {
+                color: '#FFFFFF',
+                fontSize: 12,
+            },
+            series: [{
+                name: '获奖数',
+                type: 'map',
+                mapType: '安徽',
+                roam: false,
+                selectedMode: 'single',
+                /* top:'40px', */
+                layoutCenter: ['50%', '50%'],
+                // 如果宽高比大于 1 则宽度为 100，如果小于 1 则高度为 100，保证了不超过 100x100 的区域
+                layoutSize: 350,
+
+                label: {
+                    normal: {
+                        show: true
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data: [{
+                    name: '合肥市',
+                    value: 758
+                }, {
+                    name: '马鞍山市',
+                    value: 145
+                }, {
+                    name: '安庆市',
+                    value: 325
+                }, {
+                    name: '宿州市',
+                    value: 45
+                }, {
+                    name: '滁州市',
+                    value: 369
+                }, {
+                    name: '亳州市',
+                    value: 45
+                }, {
+                    name: '阜阳市',
+                    value: 78
+                }, {
+                    name: '淮南市',
+                    value: 120
+                }, {
+                    name: '六安市',
+                    value: 243
+                }, {
+                    name: '宣城市',
+                    value: 99
+                }, {
+                    name: '芜湖市',
+                    value: 752
+                }, {
+                    name: '铜陵市',
+                    value: 102
+                }, {
+                    name: '黄山市',
+                    value: 89
+                }, {
+                    name: '池州市',
+                    value: 0
+                }, {
+                    name: '阜阳市',
+                    value: 128
+                }, {
+                    name: '蚌埠市',
+                    value: 256
+                }, {
+                    name: '淮北市',
+                    value: 112
+                }]
+            }]
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    </script>
+</body>
+
+</html>

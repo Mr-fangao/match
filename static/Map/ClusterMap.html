@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.17/"></script>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #infoDiv {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+        }
+        
+        .right {
+            width: 420px;
+            height: 60%;
+            background-color: #ffffff2d;
+            position: absolute;
+            top: 10px;
+            left: 1100px;
+            z-index: 1000;
+        }
+        
+        .esri-widget__table {
+            color: #fff;
+        }
+        
+        .right-top {
+            background: white;
+            padding: 10px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            width: 400px;
+            color: #FFF;
+            background-color: #ffffff09;
+            height: 300px;
+        }
+        
+        .esri-attribution {
+            display: none;
+        }
+        
+        .esri-view .esri-view-surface--inset-outline:focus::after {
+            outline: auto 0px Highlight !important;
+            outline: auto 0px -webkit-focus-ring-color !important;
+        }
+        
+        .esri-select {
+            background-color: transparent;
+            color: aliceblue
+        }
+        
+        .esri-widget {
+            background-color: rgb(110 110 110 / 30%);
+            color: #ffffff;
+        }
+    </style>
+
+    <script>
+        require([
+            "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/widgets/Legend", "esri/widgets/Expand", "esri/widgets/Search",
+            "esri/widgets/Home", "esri/widgets/BasemapToggle", "esri/smartMapping/labels/clusters", "esri/smartMapping/popup/clusters", "esri/core/promiseUtils"
+        ], function(
+            Map, MapView, FeatureLayer, Legend, Expand, Search,
+            Home, BasemapToggle, clusterLabelCreator, clusterPopupCreator, promiseUtils
+        ) {
+            const serviceUrl = "http://1.116.236.2:6080/arcgis/rest/services/4C%E5%A4%A7%E8%B5%9B%E6%95%B0%E6%8D%AE/MapServer";
+            const layer = new FeatureLayer({
+                url: serviceUrl,
+                title: null,
+                outFields: ["*"],
+                popupTemplate: {
+                    title: "{学校}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [{
+                            fieldName: "比赛名称",
+                            label: "比赛名称"
+                        }, {
+                            fieldName: "学校",
+                            label: "学校"
+                        }, {
+                            fieldName: "获奖时间",
+                            label: "获奖时间"
+                        }, {
+                            fieldName: "赛事级别",
+                            label: "赛事级别"
+                        }, {
+                            fieldName: "类别分组",
+                            label: "类别分组"
+                        }, {
+                            fieldName: "比赛题目",
+                            label: "比赛题目"
+                        }, {
+                            fieldName: "参赛学生1",
+                            label: "参赛学生"
+                        }, {
+                            fieldName: "第一指导老",
+                            label: "第一指导老师"
+                        }, {
+                            fieldName: "第二指导老",
+                            label: "第二指导老师"
+                        }, {
+                            fieldName: "获奖等级",
+                            label: "获奖等级"
+                        }, ]
+                    }]
+                }
+            });
+            var maplayer = new FeatureLayer({
+                url: "http://1.116.236.2:6080/arcgis/rest/services/聚类/MapServer",
+
+            });
+
+            const map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [maplayer, layer]
+            });
+
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [117.29251358116619, 31.91812360584148],
+                zoom: 6
+            });
+
+            let search = new Search({
+                view: view
+            });
+            view.ui.add(search, {
+                position: "top-left",
+                index: 0
+            });
+
+            let homeBtn = new Home({
+                view: view
+            });
+            view.ui.add(homeBtn, "top-left");
+
+
+
+            const legend = new Legend({
+                view: view,
+                container: "legendDiv"
+            });
+
+            const infoDiv = document.getElementById("infoDiv");
+            view.ui.add(new Expand({
+                view: view,
+                content: infoDiv,
+                expandIconClass: "esri-icon-layer-list",
+                expanded: true
+            }), "bottom-left");
+
+            layer
+                .when()
+                .then(generateClusterConfig)
+                .then(function(featureReduction) {
+                    layer.featureReduction = featureReduction;
+                    const toggleButton = document.getElementById("toggle-cluster");
+                    toggleButton.addEventListener("click", toggleClustering);
+
+                    function toggleClustering() {
+                        if (isWithinScaleThreshold()) {
+                            let fr = layer.featureReduction;
+                            layer.featureReduction = fr && fr.type === "cluster" ? null : featureReduction;
+                        }
+                        toggleButton.innerText = toggleButton.innerText === "执行聚类" ? "取消聚类" : "执行聚类";
+                    }
+
+                    view.whenLayerView(layer).then(function(layerView) {
+                        const filterSelect = document.getElementById("filter");
+                        filterSelect.addEventListener("change", function(event) {
+                            const newValue = event.target.value;
+                            const whereClause = newValue ? "获奖等级 = '" + newValue + "'" : null;
+                            layerView.filter = {
+                                where: whereClause
+                            };
+                            view.popup.close();
+                        });
+                    });
+
+                    view.watch("scale", function(scale) {
+                        if (toggleButton.innerText === "Disable Clustering") {
+                            layer.featureReduction = isWithinScaleThreshold() ?
+                                featureReduction : null;
+                        }
+                    });
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+
+            function isWithinScaleThreshold() {
+                return view.scale > 50000;
+            }
+
+            function generateClusterConfig(layer) {
+                const popupPromise = clusterPopupCreator
+                    .getTemplates({
+                        layer: layer
+                    })
+                    .then(function(popupTemplateResponse) {
+                        return popupTemplateResponse.primaryTemplate.value;
+                    });
+
+                const labelPromise = clusterLabelCreator
+                    .getLabelSchemes({
+                        layer: layer,
+                        view: view
+                    })
+                    .then(function(labelSchemes) {
+                        return labelSchemes.primaryScheme;
+                    });
+
+                return promiseUtils
+                    .eachAlways([popupPromise, labelPromise])
+                    .then(function(result) {
+                        const popupTemplate = result[0].value;
+                        const primaryLabelScheme = result[1].value;
+                        const labelingInfo = primaryLabelScheme.labelingInfo;
+                        const clusterMinSize = primaryLabelScheme.clusterMinSize;
+
+                        return {
+                            type: "cluster",
+                            popupTemplate: popupTemplate,
+                            labelingInfo: labelingInfo,
+                            clusterMinSize: clusterMinSize
+                        };
+                    })
+                    .catch(function(error) {
+                        console.error(error);
+                    });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+    <div id="infoDiv" class="esri-widget">
+        <select id="filter" class="esri-select">
+        <option value="">所有</option> 
+        <option value="一等奖">一等奖</option> 
+        <option value="二等奖">二等奖</option> 
+        <option value="三等奖">三等奖</option> 
+      </select>
+        <div style="padding-top: 10px"> <button id="toggle-cluster" class="esri-button"> 取消聚类 </button> </div>
+        <div id="legendDiv"></div>
+    </div>
+
+</body>
+
+</html>

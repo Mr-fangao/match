@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>QueryTask | Sample | ArcGIS API for JavaScript 4.18</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #optionsDiv {
+            background-color: dimgray;
+            color: white;
+            padding: 10px;
+            width: 245px;
+            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
+            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+        }
+        
+        .esri-popup .esri-popup-header .esri-title {
+            font-size: 18px;
+            font-weight: bolder;
+        }
+        
+        .esri-popup .esri-popup-body .esri-popup-content {
+            font-size: 14px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/GraphicsLayer",
+            "esri/tasks/QueryTask",
+            "esri/tasks/support/Query",
+
+        ], function(Map, MapView, GraphicsLayer, QueryTask, Query) {
+
+            var peaksUrl =
+                "http://1.116.236.2:6080/arcgis/rest/services/4C大赛数据/MapServer/0";
+
+            // Define the popup content for each result
+
+            var popupTemplate = {
+                // autocasts as new PopupTemplate()
+                title: "{学校}, {比赛题目}, {第一指导老}}, {获奖等级}",
+                fieldInfos: [{
+                    fieldName: "学校",
+                    label: "学校",
+                    format: {
+                        places: 0,
+                        digitSeperator: true
+                    }
+                }, {
+                    fieldName: "比赛题目",
+                    label: "比赛题目",
+                    format: {
+                        places: 0,
+                        digitSeperator: true
+                    }
+                }, ],
+                content: "<b><a>学校:</a>" +
+                    "</b> {学校}" +
+                    "<br><b>比赛题目:</b> {比赛题目}"
+            };
+
+            var mtnSymbol = {
+                type: "point", // autocasts as new PointSymbol3D()
+                symbolLayers: [{
+                    type: "object", // autocasts as new ObjectSymbol3DLayer()
+                    material: {
+                        color: "#ffff00"
+                    },
+                    resource: {
+                        primitive: "cone"
+                    }
+                }]
+            };
+
+
+            var resultsLayer = new GraphicsLayer();
+
+
+            var qTask = new QueryTask({
+                url: peaksUrl,
+
+            });
+
+
+            var params = new Query({
+                returnGeometry: true,
+                outFields: ["*"]
+            });
+
+            var map = new Map({
+                basemap: {
+                    portalItem: {
+                        id: "4886f04424b44f64a11507ec6faae445"
+                    }
+                },
+                layers: [resultsLayer] // add graphics layer to the map
+            });
+
+            var view = new MapView({
+                map: map,
+                container: 'viewDiv',
+                zoom: 7,
+                center: [117.29251358116619, 31.91812360584148],
+                popup: {
+                    dockEnabled: true,
+                    dockOptions: {
+                        position: "top-right",
+                        breakpoint: false
+                    }
+                }
+            });
+
+
+            view.when(function() {
+                view.ui.add("optionsDiv", "bottom-right");
+                document.getElementById("doBtn").addEventListener("click", doQuery);
+            });
+
+
+            // Executes each time the button is clicked
+            function doQuery() {
+                // Clear the results from a previous query
+                resultsLayer.removeAll();
+
+                params.where =
+                    '比赛名称 =' + $("#比赛名称 ").val() +
+                    " AND 学校 = '" + $("#学校").val() + "'" +
+                    " OR 第一指导老 = '" + $("#第一指导老师").val() + "'" +
+                    " OR 获奖时间 = '" + $("#获奖时间").val() + "'";
+
+                // alert(params.where)
+
+                qTask
+                    .execute(params)
+                    .then(getResults)
+                    .catch(promiseRejected);
+            }
+
+            // Called each time the promise is resolved
+            function getResults(response) {
+
+                var peakResults = response.features.map(function(feature) {
+
+                    feature.symbol = {
+                        type: "point", // autocasts as new PointSymbol3D()
+                        symbolLayers: [{
+                            type: "object", // autocasts as new ObjectSymbol3DLayer()
+                            material: {
+                                color: "#ffff00"
+                            },
+                            resource: {
+                                primitive: "cone"
+                            },
+                            width: 100000,
+                        }]
+                    };
+
+                    feature.popupTemplate = popupTemplate;
+                    return feature;
+                });
+
+                resultsLayer.addMany(peakResults);
+
+                // animate to the results after they are added to the map
+                view.goTo(peakResults).then(function() {
+                    view.popup.open({
+                        features: peakResults,
+                        featureMenuOpen: true,
+                        updateLocationEnabled: true
+                    });
+                }).catch(function(error) {
+                    if (error.name != "AbortError") {
+                        console.error(error);
+                    }
+                });
+
+                // print the number of results returned to the user
+                document.getElementById("printResults").innerHTML = peakResults.length + " results found!";
+            }
+
+            // Called each time the promise is rejected
+            function promiseRejected(error) {
+                console.error("Promise rejected: ", error.message);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+    <div class="esri-widget" id="optionsDiv">
+        <h2>职位条件查询</h2>
+
+        <div>
+            <span>比赛名称</span>
+            <input id="比赛名称" type="text" value="" />
+        </div>
+
+
+        <div>
+            <span>学校</span>
+            <input id="学校" type="text" value="滁州学院" />
+        </div>
+
+        <div>
+            <span>第一指导老师</span>
+            <input id="第一指导老师" type="text" value="" />
+        </div>
+
+        <div>
+            <span>获奖时间</span>
+            <input id="获奖时间" type="text" value="2021" />
+        </div>
+
+
+        <button class="esri-widget" id="doBtn" style="margin:0 auto">Do Query</button>
+
+
+    </div>
+</body>
+
+</html>

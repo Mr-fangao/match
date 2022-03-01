@@ -1,0 +1,24 @@
+{
+    "list": [{
+            "department": "杭州",
+            "num": 480
+        },
+        {
+            "department": "上海",
+            "num": 380
+        },
+        {
+            "department": "北京",
+            "num": 366
+        },
+        {
+            "department": "河南",
+            "num": 320
+        },
+        {
+            "department": "厦门",
+            "num": 300
+        }
+
+    ]
+}
