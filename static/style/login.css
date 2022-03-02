@@ -51,7 +51,7 @@ body {
 }
 
 .box {
-    background-image: url("../img/login_bg.jpg");
+    background-image: url("../../src/components/login/img/bg.jpg");
     background-size: cover;
     margin: 0 auto;
     position: relative;
