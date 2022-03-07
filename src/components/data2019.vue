@@ -505,7 +505,7 @@ float: left;
     background-color: rgb(58 83 134 / 15%);
 }
 .tab{
-  background-color:#14263b
+  background-color: rgb(0 34 71 / 70%);
 }
 #right1{
     float: right;
@@ -550,7 +550,8 @@ float: left;
                 linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
                 linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
     background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
-    background-color: rgb(14 148 234 / 5%);
+    
+    background-image: url("./img/buttonbg.png");
 }
 .right-center{
     

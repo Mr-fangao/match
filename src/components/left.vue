@@ -48,7 +48,7 @@ ul
 nav{
     background: grey;
 	float:left;
-	background-color: #142438;
+	background-color: rgb(0 34 71 / 100%);
     border-bottom-color: rgb(14 148 234 / 20%);
     border-bottom-style: outset;
     width:3%;

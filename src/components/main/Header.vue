@@ -102,7 +102,7 @@ span{
 nav{
 	background: grey;
 	padding:5px 0;
-	background-color: #142438;
+	background-color: rgb(0 34 71 / 100%);
     border-bottom-color: rgb(14 148 234 / 20%);
     border-bottom-style: outset;
 	/* background-image: url("/static/img/4.png"); */

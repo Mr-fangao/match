@@ -59,4 +59,6 @@ export default {
 
 <style>
 @import'../static/style/bootstrap.css';
+#app{
+background-color: aliceblue;}
 </style>

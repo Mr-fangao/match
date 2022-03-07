@@ -375,6 +375,7 @@ white-space: normal;
                 linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
                 linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
     background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
+    background-image: url("../../img/buttonbg.png");
    background-color: rgb(14 148 234 / 5%);
 }
 .left-bottom{

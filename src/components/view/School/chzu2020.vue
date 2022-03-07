@@ -1048,7 +1048,7 @@ el-progress-bar__outer {
 }
 
 .tab{
-  background-color:#14263b
+  background-color:rgb(0 34 71 / 70%)
 }
 
 

@@ -502,7 +502,7 @@ float: left;
     background-color: rgb(58 83 134 / 15%);
 }
 .tab{
-  background-color:#14263b
+  background-color:rgb(0 34 71 / 70%)
 }
 #right1{
     float: right;
