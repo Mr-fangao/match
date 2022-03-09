@@ -238,7 +238,7 @@ pre {
     width: 99%;
     height: 31%;
     position: relative;
-    background-color: #0e94ea;
+    
 }
 
 .left-center {
@@ -246,6 +246,9 @@ pre {
     height: 34%;
     position: relative;
     margin-top: 1px;
+    background-image: url("../../src/components/img/back.png");
+    background-size: 100% 100%;
+    background-position: 10% 10%;
 }
 
 .left-bottom {
@@ -253,6 +256,9 @@ pre {
     height: 34%;
     position: relative;
     margin-top: 1px;
+    background-image: url("../../src/components/img/back.png");
+    background-size: 100% 100%;
+    background-position: 10% 10%;
 }
 
 .box-center {
@@ -291,23 +297,31 @@ pre {
     width: 32.5%;
     height: 100%;
     float: right;
+    
 }
 
 .right-top {
     width: 99%;
-    height: 31%;
+    height: 35%;
     box-sizing: border-box;
     padding-top: 0.2rem;
     position: relative;
     margin-left: 3px;
+    background-image: url("../../src/components/img/back.png");
+    background-size: 100% 100%;
+    background-position: 10% 10%;
+    
 }
 
 .right-bottom {
     width: 99%;
-    height: 60%;
+    height: 65%;
     position: relative;
     margin-top: 1px;
     margin-left: 3px;
+    background-image: url("../../src/components/img/back.png");
+    background-size: 100% 100%;
+    background-position: 10% 10%;
 }
 
 .right-center {
@@ -316,6 +330,9 @@ pre {
     position: relative;
     margin-top: 1px;
     margin-left: 3px;
+    background-image: url("../../src/components/img/back.png");
+    background-size: 100% 100%;
+    background-position: 10% 10%;
 }
 
 .one {

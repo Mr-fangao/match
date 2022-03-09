@@ -73,18 +73,17 @@
               <div class="childrenBar">
              
     <el-row>
-  <el-button type="primary">2010年</el-button>
-  <el-button type="primary">2011年</el-button>
-  <el-button type="primary">2012年</el-button>
-  <el-button type="primary">2013年</el-button>
-  <el-button type="primary">2014年</el-button>
-  <el-button type="primary">2015年</el-button>
-  <el-button type="primary">2016年</el-button>
-  <el-button type="primary">2017年</el-button>
-  <el-button type="primary">2018年</el-button>
-  <el-button type="primary">2019年</el-button>
-  <el-button type="danger"style="background-color:#f78989">2020年</el-button>
-   <el-button type="primary"@click="ALL()">ALL</el-button>
+  <el-button type="danger" style="background-color: #f78989">2020年</el-button>
+                <el-button type="primary" @click="data2019()">2019年</el-button>
+                <el-button type="primary">2018年</el-button>
+                <el-button type="primary">2017年</el-button>
+                <el-button type="primary">2016年</el-button>
+                <el-button type="primary">2015年</el-button>
+                <el-button type="primary">2014年</el-button>
+                <el-button type="primary">2013年</el-button>
+                <el-button type="primary">2012年</el-button>
+                <el-button type="primary">2011年</el-button>
+                <el-button type="primary">2010年</el-button>
 </el-row>
   
     
@@ -299,1036 +298,995 @@
 </template>
 
 <script>
- //import '../static/js/anhui.js'
- import left from '../../left.vue'
-import "./style/style.css"
+//import '../static/js/anhui.js'
+import left from "../../left.vue";
+import "./style/style.css";
 //import  "./js/index.json"
-import "./style/index.css"
- import axios from 'axios'
-  export default {
-  name: 'page',
-  components:{
-    left
+import "./style/index.css";
+import axios from "axios";
+export default {
+  name: "page",
+  components: {
+    left,
   },
-  data () {
+  data() {
     return {
-      people:4263,
-      people1:624,
-      introduce:"滁州学院位于安徽省滁州市，是安徽省省属全日制普通本科院校，是安徽省高等教育振兴计划“地方应用型高水平大学建设”高校、国家级大学生创新创业训练计划实施高校、全国深化创新创业教育改革示范高校、“应急安全智慧学习工场（2020）”暨应急管理学院建设首批试点学校 ，CDIO工程教育联盟成员单位。",
-      msg: 'Welcome to Your Vue.js App',
-      activeName:'third',
-      options: [{
-          value: '1',
-          label: '中国大学生计算机设计大赛'
-        }, {
-          value: '2',
-          label: '安徽省大学生GIS技能大赛'
-        }, {
-          value: '3',
-          label: '安徽省大学生互联网+大学生创新创业大赛'
-        }, {
-          value: '4',
-          label: '安徽省大数据与人工智能应用竞赛'
-        }, {
-          value: '5',
-          label: '安徽省机器人大赛'
-        }],
-        value: '',
-      selfstyle:{
-        color:"#fff",
-        left: "5%"
+      people: 4263,
+      people1: 624,
+      introduce:
+        "滁州学院位于安徽省滁州市，是安徽省省属全日制普通本科院校，是安徽省高等教育振兴计划“地方应用型高水平大学建设”高校、国家级大学生创新创业训练计划实施高校、全国深化创新创业教育改革示范高校、“应急安全智慧学习工场（2020）”暨应急管理学院建设首批试点学校 ，CDIO工程教育联盟成员单位。",
+      msg: "Welcome to Your Vue.js App",
+      activeName: "third",
+      options: [
+        {
+          value: "1",
+          label: "中国大学生计算机设计大赛",
+        },
+        {
+          value: "2",
+          label: "安徽省大学生GIS技能大赛",
+        },
+        {
+          value: "3",
+          label: "安徽省大学生互联网+大学生创新创业大赛",
+        },
+        {
+          value: "4",
+          label: "安徽省大数据与人工智能应用竞赛",
+        },
+        {
+          value: "5",
+          label: "安徽省机器人大赛",
+        },
+      ],
+      value: "",
+      selfstyle: {
+        color: "#fff",
+        left: "5%",
       },
-      detail:{},
-      details:[
-           {
-      "比赛名称": "中国大学生计算机设计大赛",
-      "类别分组": "数媒动漫与微电影（专业组）-纪录片",
-      "比赛题目": "金石志",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "中国大学生计算机设计大赛",
-      "类别分组": "数媒中华优秀民族文化元素（专业组）-平面设计（静态设计）",
-      "比赛题目": "十二生肖数字插画",
-      "获奖等级": "一等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "安徽省“互联网+”大学生创新创业大赛",
-      "类别分组": "初创组",
-      "比赛题目": "“未名湖”文化创意设计工作室",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "视频类",
-      "比赛题目": "《疫·志》",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "轻轻一“点”",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "蝠祸相依",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "少说多做—口罩篇",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "《加减乘除》",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "《成为一个英雄》",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "疫不容辞",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "《昨是今非》",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "平面类",
-      "比赛题目": "《防护不规范，无疫路漫漫》",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "动画类",
-      "比赛题目": "《娃哈哈黑糖奶茶》",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "广播类",
-      "比赛题目": "智慧感光，自然出众",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "广播类",
-      "比赛题目": "《爱“洗”猫》",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "广播类",
-      "比赛题目": "碱越多减越多",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "广播类",
-      "比赛题目": "对不起，只帮到这。",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "文案类",
-      "比赛题目": "水分 ",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "文案类",
-      "比赛题目": "每个人的爱华仕",
-      "获奖等级": "二等奖",
-      "赛事级别": "省赛"
-    },
-    {
-      "比赛名称": "全国大学生广告艺术大赛",
-      "类别分组": "文案类",
-      "比赛题目": "美丽不掉线",
-      "获奖等级": "三等奖",
-      "赛事级别": "省赛"
-    }
-      ],dialogTableVisible: false,
- teacher: {'第一指导老师': '', '获奖数': '',},
- teachers:[
-   {
-      "第一指导老师": "朱金鑫",
-      "获奖数": "20"
-    },
-    {
-      "第一指导老师": "金灿",
-      "获奖数": "15"
-    },
-    {
-      "第一指导老师": "何雯",
-      "获奖数": "11"
-    },
-    {
-      "第一指导老师": "张悦",
-      "获奖数": "7"
-    },
-    {
-      "第一指导老师": "江梅梅",
-      "获奖数": "6"
-    },
-    {
-      "第一指导老师": "李振洋",
-      "获奖数": "6"
-    },
-    {
-      "第一指导老师": "刘竞遥",
-      "获奖数": "5"
-    },
-    {
-      "第一指导老师": "吴豹",
-      "获奖数": "5"
-    },
-    {
-      "第一指导老师": "邓凯",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "申思达",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "董锐",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "陈海宝",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "吴玉",
-      "获奖数": "4"
-    },
-    
-    {
-      "第一指导老师": "冷荣亮",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "孙凯传",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "顾善凯",
-      "获奖数": "4"
-    },
-    {
-      "第一指导老师": "王杨",
-      "获奖数": "3"
-    },
-    {
-      "第一指导老师": "赵亮",
-      "获奖数": "3"
-    },
-    {
-      "第一指导老师": "张宇",
-      "获奖数": "3"
-    },
-    {
-      "第一指导老师": "温卫敏",
-      "获奖数": "3"
-    },
-    {
-      "第一指导老师": "余晓美",
-      "获奖数": "3"
-    },
-    {
-      "第一指导老师": "吕日琴",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "甘翔",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "杜良丽",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "张珂",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "任丽颖",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "李伟涛",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "孙勇",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "郭雪燕",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "陈一笑",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "朱泽婷",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "徐志红",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "陈寿文",
-      "获奖数": "2"
-    },
-    {
-      "第一指导老师": "侯晓珊",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "龚洁松",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "丁素云",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "倪敏",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "袁玲",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "黄梅",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "程艳",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "彭俊",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "刘国秀",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "董再秀",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "赵玉艳",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "郑娟",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "潘宏",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "施韵佳",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "杜良丽",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "陈寿文",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "包建国",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "孙书亚",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "江岭",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "赵亚飞",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "刘玉锋",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "张帅",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王国奎",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "高来鑫",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王松劼",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "崔平安",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "李龙伟",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "赵明伟",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "周亮广",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "叶涛",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "李建梅",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "张巧云",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "何君洁",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "方纯",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "李楠",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "于春燕",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "黄骁力",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "马良",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "杨传健",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "赵生慧",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "沈晓",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王婷",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "董国娟",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王永贵",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "周阿洋",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "李慧",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王涛",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王玉亮",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "台德进",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "程长明",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "崇蓉蓉",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "耿刘利",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "宫瑱",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "陶雨萍",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "孙超",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "王大星",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "李爱军",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "教练组",
-      "获奖数": "1"
-    },
-    {
-      "第一指导老师": "胡贝贝",
-      "获奖数": "1"
-    }
-        ]
-  }
+      detail: {},
+      details: [
+        {
+          比赛名称: "中国大学生计算机设计大赛",
+          类别分组: "数媒动漫与微电影（专业组）-纪录片",
+          比赛题目: "金石志",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "中国大学生计算机设计大赛",
+          类别分组: "数媒中华优秀民族文化元素（专业组）-平面设计（静态设计）",
+          比赛题目: "十二生肖数字插画",
+          获奖等级: "一等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "安徽省“互联网+”大学生创新创业大赛",
+          类别分组: "初创组",
+          比赛题目: "“未名湖”文化创意设计工作室",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "视频类",
+          比赛题目: "《疫·志》",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "轻轻一“点”",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "蝠祸相依",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "少说多做—口罩篇",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "《加减乘除》",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "《成为一个英雄》",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "疫不容辞",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "《昨是今非》",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "平面类",
+          比赛题目: "《防护不规范，无疫路漫漫》",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "动画类",
+          比赛题目: "《娃哈哈黑糖奶茶》",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "广播类",
+          比赛题目: "智慧感光，自然出众",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "广播类",
+          比赛题目: "《爱“洗”猫》",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "广播类",
+          比赛题目: "碱越多减越多",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "广播类",
+          比赛题目: "对不起，只帮到这。",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "文案类",
+          比赛题目: "水分 ",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "文案类",
+          比赛题目: "每个人的爱华仕",
+          获奖等级: "二等奖",
+          赛事级别: "省赛",
+        },
+        {
+          比赛名称: "全国大学生广告艺术大赛",
+          类别分组: "文案类",
+          比赛题目: "美丽不掉线",
+          获奖等级: "三等奖",
+          赛事级别: "省赛",
+        },
+      ],
+      dialogTableVisible: false,
+      teacher: { 第一指导老师: "", 获奖数: "" },
+      teachers: [
+        {
+          第一指导老师: "朱金鑫",
+          获奖数: "20",
+        },
+        {
+          第一指导老师: "金灿",
+          获奖数: "15",
+        },
+        {
+          第一指导老师: "何雯",
+          获奖数: "11",
+        },
+        {
+          第一指导老师: "张悦",
+          获奖数: "7",
+        },
+        {
+          第一指导老师: "江梅梅",
+          获奖数: "6",
+        },
+        {
+          第一指导老师: "李振洋",
+          获奖数: "6",
+        },
+        {
+          第一指导老师: "刘竞遥",
+          获奖数: "5",
+        },
+        {
+          第一指导老师: "吴豹",
+          获奖数: "5",
+        },
+        {
+          第一指导老师: "邓凯",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "申思达",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "董锐",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "陈海宝",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "吴玉",
+          获奖数: "4",
+        },
+
+        {
+          第一指导老师: "冷荣亮",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "孙凯传",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "顾善凯",
+          获奖数: "4",
+        },
+        {
+          第一指导老师: "王杨",
+          获奖数: "3",
+        },
+        {
+          第一指导老师: "赵亮",
+          获奖数: "3",
+        },
+        {
+          第一指导老师: "张宇",
+          获奖数: "3",
+        },
+        {
+          第一指导老师: "温卫敏",
+          获奖数: "3",
+        },
+        {
+          第一指导老师: "余晓美",
+          获奖数: "3",
+        },
+        {
+          第一指导老师: "吕日琴",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "甘翔",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "杜良丽",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "张珂",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "任丽颖",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "李伟涛",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "孙勇",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "郭雪燕",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "陈一笑",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "朱泽婷",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "徐志红",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "陈寿文",
+          获奖数: "2",
+        },
+        {
+          第一指导老师: "侯晓珊",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "龚洁松",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "丁素云",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "倪敏",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "袁玲",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "黄梅",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "程艳",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "彭俊",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "刘国秀",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "董再秀",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "赵玉艳",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "郑娟",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "潘宏",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "施韵佳",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "杜良丽",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "陈寿文",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "包建国",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "孙书亚",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "江岭",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "赵亚飞",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "刘玉锋",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "张帅",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王国奎",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "高来鑫",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王松劼",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "崔平安",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "李龙伟",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "赵明伟",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "周亮广",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "叶涛",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "李建梅",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "张巧云",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "何君洁",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "方纯",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "李楠",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "于春燕",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "黄骁力",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "马良",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "杨传健",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "赵生慧",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "沈晓",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王婷",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "董国娟",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王永贵",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "周阿洋",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "李慧",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王涛",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王玉亮",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "台德进",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "程长明",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "崇蓉蓉",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "耿刘利",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "宫瑱",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "陶雨萍",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "孙超",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "王大星",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "李爱军",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "教练组",
+          获奖数: "1",
+        },
+        {
+          第一指导老师: "胡贝贝",
+          获奖数: "1",
+        },
+      ],
+    };
   },
   mounted() {
-      this.drawLine();
-      this.nianfen();
+    this.drawLine();
+    this.nianfen();
   },
-  methods: { 
-   handleClick(tab, event) {
-        console.log(tab, event);
-      },            
-   showAndHidden1(){
-   var div1=document.getElementById("div1");
-   var div2=document.getElementById("div2");
-   if(div1.style.display=='block') div1.style.display='none';
-   else div1.style.display='block';
-   if(div2.style.display=='block') div2.style.display='none';
-   else div2.style.display='block';
-   },
-   ALL(){
-       this.$router.push({path:"/chzu"})
-   },
-    changeHref:function(sortnum){
-      switch(sortnum){
+  methods: {
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
+    showAndHidden1() {
+      var div1 = document.getElementById("div1");
+      var div2 = document.getElementById("div2");
+      if (div1.style.display == "block") div1.style.display = "none";
+      else div1.style.display = "block";
+      if (div2.style.display == "block") div2.style.display = "none";
+      else div2.style.display = "block";
+    },
+    ALL() {
+      this.$router.push({ path: "/chzu" });
+    },
+    changeHref: function (sortnum) {
+      switch (sortnum) {
         case 1:
-        this.$router.push({
-          path:"/chzuc2020"
-        });
-        break;
-        case 2:this.$router.push({
-          path:"/chzuc2020"
-        });
-        break;
-        case 2:this.$router.push({
-          path:"/chzuc2020"
-        });
-        break;
-        case 2:this.$router.push({
-          path:"/GIS1"
-        });
-        break;
-        case 2:this.$router.push({
-          path:"/GIS1"
-        });
-        break;
-        }},
- drawLine(){
-       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById('myChart'))
+          this.$router.push({
+            path: "/chzuc2020",
+          });
+          break;
+        case 2:
+          this.$router.push({
+            path: "/chzuc2020",
+          });
+          break;
+        case 2:
+          this.$router.push({
+            path: "/chzuc2020",
+          });
+          break;
+        case 2:
+          this.$router.push({
+            path: "/GIS1",
+          });
+          break;
+        case 2:
+          this.$router.push({
+            path: "/GIS1",
+          });
+          break;
+      }
+    },
+    drawLine() {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart"));
       let dataMax = [
-        { name: '理工', max: '100' },
-        { name: '文科', max: '100' },
-        { name: '体育', max: '100' },
-        { name: '综合', max: '100' },
-        { name: '艺术', max: '100' },
-      ]
+        { name: "理工", max: "100" },
+        { name: "文科", max: "100" },
+        { name: "体育", max: "100" },
+        { name: "综合", max: "100" },
+        { name: "艺术", max: "100" },
+      ];
       let option = {
-           title: {
-                text: "",
-                left: '5%',
-                top: '0px', 
-                textStyle: {
-                    color: "#fff",
-                    fontFamily: "Microsoft YaHei",
-                    fontSize: "15",
-                    fontWeight: "150",
-                }
-            },
+        title: {
+          text: "",
+          left: "5%",
+          top: "0px",
+          textStyle: {
+            color: "#fff",
+            fontFamily: "Microsoft YaHei",
+            fontSize: "15",
+            fontWeight: "150",
+          },
+        },
         //配置维度的最大值
         radar: {
           name: {
             show: true,
-            color: 'white',
+            color: "white",
           },
           //   雷达图的指示器，用来指定雷达图中的多个变量（维度）
           indicator: dataMax,
-          shape: '', //对雷达图形设置成一个圆形,可选 circle:圆形,polygon:多角形(默认)
+          shape: "", //对雷达图形设置成一个圆形,可选 circle:圆形,polygon:多角形(默认)
         },
-         grid: {
-                left: '10%',
-                right: '10%',
-                bottom: '15%',
-                top: '30%'
-
-            },
+        grid: {
+          left: "10%",
+          right: "10%",
+          bottom: "15%",
+          top: "30%",
+        },
         series: [
           {
-              top:'20%',
-            type: 'radar',
+            top: "20%",
+            type: "radar",
             label: {
               show: false, //显示数值
             },
             areaStyle: {}, //每个雷达图形成一个阴影的面积
             data: [
               {
-                name: '赛事类型',
+                name: "赛事类型",
                 value: [92, 74, 60, 82, 84],
               },
-              
             ],
           },
         ],
-      }
+      };
       // 绘制图表
       myChart.setOption(option);
-       },
-   insert: function () {
-      this.users.push(this.user)
+    },
+    insert: function () {
+      this.users.push(this.user);
     },
     remove: function (index) {
-      this.users.splice(index, 1)
+      this.users.splice(index, 1);
     },
-    data2019(){
-        this.$router.push({path:'/data2019'})
-        
+    data2019() {
+      this.$router.push({ path: "/data2019" });
     },
-    data2018(){
-        this.$router.push({path:'/data2018'})
+    data2018() {
+      this.$router.push({ path: "/data2018" });
     },
-    nianfen(){
-        
-
-    },
+    nianfen() {},
     open() {
-        this.$alert('<iframe src="./static/chzu/赛事热度排行榜.html"frameborder="0"  scrolling="no"style="width:100%;height:500px;"></inframe>', {
-          dangerouslyUseHTMLString: true
-        });
-      }
+      this.$alert(
+        '<iframe src="./static/chzu/赛事热度排行榜.html"frameborder="0"  scrolling="no"style="width:100%;height:500px;"></inframe>',
+        {
+          dangerouslyUseHTMLString: true,
+        }
+      );
+    },
   },
-    
-   
-  
-
-  }
-
-  
-  
+};
 </script>
 
 <style scoped>
-
-#page{
-	
-	
-	height: 691px;
-	width: 100%;
-  float:right;
-  margin-top:4px
-},
-
-
-.button::after{
-    border:none;
-    
-    
-},
-button{
-background-color:transparent; 
+#page {
+  height: 691px;
+  width: 100%;
+  float: right;
+  margin-top: 4px;
 }
-.qiehuan{
+
+,
+.button::after {
+  border: none;
+}
+,
+button {
+  background-color: transparent;
+}
+.qiehuan {
   background-color: #ffffff2d;
   position: absolute;
   top: 7px;
   left: 445px;
   z-index: 1000;
   height: 30px;
- width: 30px;
+  width: 30px;
   border-radius: 50%;
 }
-.time{
-     background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-   background-color: rgb(14 148 234 / 5%);
-  height:6%
-
+.time {
+  background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat,
+    linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat,
+    linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
+    linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  background-color: rgb(14 148 234 / 5%);
+  height: 6%;
 }
-.heading{     
- color:#fff;
- font-size:15px;
-
+.heading {
+  color: #fff;
+  font-size: 15px;
 }
-.table{
-  width:100%;
-  height:90%;
-  
-  color:#fff
+.table {
+  width: 100%;
+  height: 90%;
 
+  color: #fff;
 }
 el-progress-bar__outer {
-    background-color: red;
+  background-color: red;
 }
 
-.tab{
-  background-color:rgb(0 34 71 / 70%)
+.tab {
+  background-color: rgb(0 34 71 / 70%);
 }
 
-
-.left-top{
-    background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-    background-color: rgb(58 83 134 / 15%);
-    height:34%
-}
-.left-center{
-  
-   background-color: rgb(58 83 134 / 15%);
-   
-   
-}
-.left-bottom{
-    background:  
-                linear-gradient(to left, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-   background-color: rgb(58 83 134 / 15%);
-   height:31%
-}
-.center-bottom{
-    margin-top:1px;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
+.left-top {
+  background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat,
+    linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat,
+    linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
+    linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
   background-color: rgb(58 83 134 / 15%);
+  height: 34%;
+}
+.left-center {
+  background-color: rgb(58 83 134 / 15%);
+}
+.left-bottom {
   
+  height: 31%;
 }
-.right-top{
-    background:linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat, 
-                linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
-    background-color: rgb(58 83 134 / 15%);
-    height: 31%;
+.center-bottom {
+  margin-top: 1px;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  background-color: rgb(58 83 134 / 15%);
 }
-.right-center{
-    
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-   background-color: rgb(58 83 134 / 15%);
-    height:7%;
-    text-align: center;
-    font-size: 15px;
-    color:#fff
+.right-top {
+  
+  height: 31%;
 }
-.right-bottom{
-    background: 
-                linear-gradient(to left, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-    background-color: rgb(58 83 134 / 15%);
-    height:61%;
+.right-center {
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  background-color: rgb(58 83 134 / 15%);
+  height: 7%;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
 }
->>>.el-select{
-    display: inline-block;
-    position: relative;
-    margin-top: 5px;
+.right-bottom {
+  
+  height: 61%;
 }
->>>.el-popper[x-placement^=bottom]{
-    margin-top: 12px;
-    min-width: 232.4px;
-    transform-origin: center top;
-    z-index: 2009;
-    right: 77px;
-    width: 200px;
-    background-color: rgb(20, 38, 59);
-    /* height: 100%; */
-    position: absolute;
-    top: 321px;
-    left: 1221px;
+>>> .el-select {
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
 }
-#un{
-  overflow:auto;
-  width:100%;
-  height:50%;
+>>> .el-popper[x-placement^="bottom"] {
+  margin-top: 12px;
+  min-width: 232.4px;
+  transform-origin: center top;
+  z-index: 2009;
+  right: 77px;
+  width: 200px;
+  background-color: rgb(20, 38, 59);
+  /* height: 100%; */
+  position: absolute;
+  top: 321px;
+  left: 1221px;
 }
-ul{
-	list-style-type: none;/*消除黑点*/
-	
-	background-attachment:fixed;
-	
-	margin:0px;
+#un {
+  overflow: auto;
+  width: 100%;
+  height: 50%;
 }
-li{
-	display: inline-block;
-	margin: 0 10px;
-    width:100%;
+ul {
+  list-style-type: none; /*消除黑点*/
+
+  background-attachment: fixed;
+
+  margin: 0px;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+  width: 100%;
 }
 
-a{
-	color: #fff;/*设置字体颜色*/
-	text-decoration: none;/*消除下划线*/
-	padding: 1px;
-	border-radius: 5px;
-    margin:0px auto;
+a {
+  color: #fff; /*设置字体颜色*/
+  text-decoration: none; /*消除下划线*/
+  padding: 1px;
+  border-radius: 5px;
+  margin: 0px auto;
 }
 
 /*选中则发生一些变化*/
-.router-link-active{
-	background: rgba(120,255,255,1);
-	color: #444;
+.router-link-active {
+  background: rgba(120, 255, 255, 1);
+  color: #444;
 }
-.button1{
-   width: 70px;
-    font: #fff;
-    height: 28px;
-    -webkit-box-shadow: rgb(82 243 255 / 30%) 0px 0px 12px 0px;
-    box-shadow: rgb(82 243 255 / 30%) 0px 0px 12px 0px;
-    border-style: outset;
-    border-color: #0c5e94;
-    border-color: #0c5e94;
-    color: hsl(205deg 80% 79%);
-    margin: 3px auto;
-    float: right;
-    font-size: medium;
-    margin-left: 20px;
-}
-
-.year{
-    color: #fff;
-    font-size: large;
-    font-family: math;
-    float: right;
-    margin-top: 8px;
-}
-p{
-margin-bottom: 0;
-font-size: 13px;
-min-height: 31px;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 31px;
-margin-top: 5px;
-color: #fff;
-white-space: normal;
-}
-.rootBar{
-width: 100%;
-height: 100%;
-
-overflow-y: hidden;
-overflow-x: auto;
-white-space: nowrap;
-}
-.childrenBar{
-width: 650px;
-height: 100%;
-position: relative;
-display: inline-block;
-color:#66b1ff
-}
-.one{
-    color:orange;
-    font-size:20px;
-    margin-bottom: 0;
-    min-height: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 31px;
-    margin-top: 5px;
-    white-space: normal;
-}
-.two{
- color:orange;
-    font-size:20px;
-    margin-bottom: 0;
-    min-height: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 31px;
-    margin-top: 5px;
-    white-space: normal;
-}
-.three{
-    color:orange;
-    font-size:20px;
-    margin-bottom: 0;
-    min-height: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 31px;
-    margin-top: 5px;
-    white-space: normal;
-}
-.four{
-    color:orange;
-    font-size:20px;
-    margin-bottom: 0;
-    min-height: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 31px;
-    margin-top: 5px;
-    white-space: normal;
-}
-.center-bottom1{
-    background:  
-                linear-gradient(to left, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-   background-color: rgb(58 83 134 / 15%);
-    width: 100%;
-    height: 31%;
-    margin-top:1px
+.button1 {
+  width: 70px;
+  font: #fff;
+  height: 28px;
+  -webkit-box-shadow: rgb(82 243 255 / 30%) 0px 0px 12px 0px;
+  box-shadow: rgb(82 243 255 / 30%) 0px 0px 12px 0px;
+  border-style: outset;
+  border-color: #0c5e94;
+  border-color: #0c5e94;
+  color: hsl(205deg 80% 79%);
+  margin: 3px auto;
+  float: right;
+  font-size: medium;
+  margin-left: 20px;
 }
 
+.year {
+  color: #fff;
+  font-size: large;
+  font-family: math;
+  float: right;
+  margin-top: 8px;
+}
+p {
+  margin-bottom: 0;
+  font-size: 13px;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  margin-top: 5px;
+  color: #fff;
+  white-space: normal;
+}
+.rootBar {
+  width: 100%;
+  height: 100%;
+
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.childrenBar {
+  width: 650px;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  color: #66b1ff;
+}
+.one {
+  color: orange;
+  font-size: 20px;
+  margin-bottom: 0;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  margin-top: 5px;
+  white-space: normal;
+}
+.two {
+  color: orange;
+  font-size: 20px;
+  margin-bottom: 0;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  margin-top: 5px;
+  white-space: normal;
+}
+.three {
+  color: orange;
+  font-size: 20px;
+  margin-bottom: 0;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  margin-top: 5px;
+  white-space: normal;
+}
+.four {
+  color: orange;
+  font-size: 20px;
+  margin-bottom: 0;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  margin-top: 5px;
+  white-space: normal;
+}
+.center-bottom1 {
+  background-image: url("../../img/back.png");
+  background-size: 100% 100%;
+  background-position: 10% 10%;
+  width: 100%;
+  height: 31%;
+  margin-top: 1px;
+}
 </style>
 <style>
-.el-button{
-    padding:12px 8px;
-    margin-left:-20px;
+.el-button {
+  padding: 12px 8px;
+  margin-left: -20px;
 }
 .el-tabs__item {
-    padding: 0 35px;
-    height: 40px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 40px;
-    display: inline-block;
-    list-style: none;
-    font-size: 15px;
-    font-weight: 500;
-    color: #ffffff;
-    position: relative;
-    margin-left:0%
+  padding: 0 35px;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 40px;
+  display: inline-block;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  position: relative;
+  margin-left: 0%;
 }
-.cententBox .el-tabs--border-card>.el-tabs__content{ 
-    position: absolute;
-    top:125px;
-    bottom: 0;
-    left: 30px;
-    right: 30px;
-    overflow-y: auto;
-    background-color: #fff;
-  }
-.center-bottom1{
-    background:  
-                linear-gradient(to left, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to bottom, #0e94eb, #0e94eb) left bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
-                linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px; 
-   background-color: rgb(14 148 234 / 5%);
-    width: 100%;
-    height: 27%;
-    margin-top:1px
+.cententBox .el-tabs--border-card > .el-tabs__content {
+  position: absolute;
+  top: 125px;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+  overflow-y: auto;
+  background-color: #fff;
 }
-.pie1{
-    width: 50%;
-    height: 100%;
-    
+.center-bottom1 {
+  
+  width: 100%;
+  height: 27%;
+  margin-top: 1px;
 }
-.pie2{
-    
-    height: 100%;
-    width: 50%;
+.pie1 {
+  width: 50%;
+  height: 100%;
 }
-.select-style{
-    position:relative;
-    display:inline-block;
+.pie2 {
+  height: 100%;
+  width: 50%;
 }
-.select{
-    color:'#fff';
-    margin:0px auto;
+.select-style {
+  position: relative;
+  display: inline-block;
 }
-
+.select {
+  color: "#fff";
+  margin: 0px auto;
+}
 </style>
