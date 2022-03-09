@@ -305,6 +305,7 @@ export default {
       }, 1500);
       this.isShow = !this.isShow;
     },
+    drawLineCJQ(){},
     drawLine(id) {
       this.charts = echarts.init(document.getElementById(id));
       this.charts.setOption({
