@@ -204,11 +204,11 @@
         type="border-card"
         @tab-click="handleClick1"
       >
-              <el-tab-pane label="词频" name="zero">
+        <el-tab-pane label="词频" name="zero">
           <div class="">
             <div class="title">>>次频分析</div>
             <div class="cahartCJQ">
-              <div id="CJQ" style="width: 1100px; height: 500px"></div>
+              <div id="CJQ" ref="Cloud" style="width: 1100px; height: 500px"></div>
             </div>
           </div>
         </el-tab-pane>
@@ -243,11 +243,13 @@
 </template>
 
 <script>
+import wordcloud from "../js/echarts-wordcloud-master/index";
 import echarts from "echarts";
 import Analysis from "../Analysis.vue";
 export default {
   components: {
     Analysis,
+    wordcloud,
   },
   name: "page4",
   data() {
@@ -283,14 +285,49 @@ export default {
       B10: "中国服务外包创新创业大赛",
       A11: "全国原创动漫大赛",
       B3: "全国英语辩论赛",
+      cloudData: [
+        { value: 1800, name: "纳木措" },
+        { value: 1200, name: "西藏" },
+        { value: 1000, name: "海拔" },
+        { value: 900, name: "景色" },
+        { value: 700, name: "湖水" },
+        { value: 650, name: "雪山" },
+        { value: 630, name: "值得" },
+        { value: 610, name: "没有" },
+        { value: 600, name: "地方" },
+        { value: 543, name: "风景" },
+        { value: 523, name: "景区" },
+        { value: 500, name: "感觉" },
+        { value: 500, name: "高原" },
+        { value: 490, name: "湖面" },
+        { value: 490, name: "圣湖" },
+        { value: 490, name: "小时" },
+        { value: 430, name: "湖泊" },
+        { value: 430, name: "大圣" },
+        { value: 430, name: "美丽" },
+        { value: 380, name: "景点" },
+        { value: 380, name: "牦牛" },
+        { value: 340, name: "时间" },
+        { value: 280, name: "咸水湖" },
+        { value: 260, name: "天湖" },
+        { value: 260, name: "藏民" },
+        { value: 200, name: "朋友" },
+        { value: 200, name: "蓝天白云" },
+        { value: 100, name: "开车" },
+        { value: 50, name: "神圣" },
+        { value: 40, name: "推荐" },
+        { value: 25, name: "限速" },
+        { value: 13, name: "距离" },
+      ],
     };
   },
   mounted() {
     this.$nextTick(function () {
       this.drawLine("main");
-      this.drawLineCJQ("CJQ ");
-    })
+      // this.drawLineCJQ("CJQ ");
+    });
     this.drawLine1();
+    this.wordCloudInti(this.$refs.Cloud, this.cloudData);
   },
   methods: {
     Analyse() {
@@ -305,7 +342,58 @@ export default {
       }, 1500);
       this.isShow = !this.isShow;
     },
-    drawLineCJQ(){},
+    // drawLineCJQ() {
+    //   this.charts = echarts.init(document.getElementById(CJQ));
+    //   this.charts.setOption({});
+    // },
+    wordCloudInti(wrapEl, data) {
+      let myChart = echarts.init(wrapEl);
+      var option = {
+        tooltip: {
+          show: true,
+        },
+        series: [
+          {
+            name: "热词",
+            type: "wordCloud",
+            sizeRange: [10, 35],
+            rotationRange: [-20, 20],
+            shape: "circle",
+            left: "center",
+            top: "center",
+            width: "100%",
+            height: "100%",
+            gridSize: 7,
+            textPadding: 0,
+            autoSize: {
+              enable: true,
+              minSize: 4,
+            },
+            textStyle: {
+              normal: {
+                color: function () {
+                  return (
+                    "rgb(" +
+                    [
+                      Math.round(Math.random() * 250),
+                      Math.round(Math.random() * 250),
+                      Math.round(Math.random() * 250),
+                    ].join(",") +
+                    ")"
+                  );
+                },
+              },
+              emphasis: {
+                shadowBlur: 10,
+                shadowColor: "#333",
+              },
+            },
+            data: data,
+          },
+        ],
+      };
+      myChart.setOption(option);
+    },
     drawLine(id) {
       this.charts = echarts.init(document.getElementById(id));
       this.charts.setOption({
