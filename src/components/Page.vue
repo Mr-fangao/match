@@ -39,18 +39,18 @@
               <div class="childrenBar">
             
      <el-row>
-  <el-button type="primary">2010年</el-button>
-  <el-button type="primary">2011年</el-button>
-  <el-button type="primary">2012年</el-button>
-  <el-button type="primary">2013年</el-button>
-  <el-button type="primary">2014年</el-button>
-  <el-button type="primary">2015年</el-button>
-  <el-button type="primary">2016年</el-button>
-  <el-button type="primary">2017年</el-button>
-  <el-button type="primary">2018年</el-button>
-  <el-button type="primary"@click="data2019()">2019年</el-button>
   <el-button type="danger"style="background-color:#f78989">2020年</el-button>
-   <el-button type="primary">ALL</el-button>
+  <el-button type="primary"@click="data2019()">2019年</el-button>
+  <el-button type="primary">2018年</el-button>
+  <el-button type="primary">2017年</el-button>
+  <el-button type="primary">2016年</el-button>
+  <el-button type="primary">2015年</el-button>
+  <el-button type="primary">2014年</el-button>
+  <el-button type="primary">2013年</el-button>
+  <el-button type="primary">2012年</el-button>
+  <el-button type="primary">2011年</el-button>
+  <el-button type="primary">2010年</el-button>
+  
 </el-row>
               
               </div>

@@ -1062,8 +1062,9 @@ el-progress-bar__outer {
     height:34%
 }
 .left-center{
-    
+  
    background-color: rgb(58 83 134 / 15%);
+   
    
 }
 .left-bottom{
