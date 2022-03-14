@@ -176,8 +176,8 @@ a{
         .right-top {
             background: white;
             padding: 10px;
-            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            background-image: url("./img/buttonbg.png");
+            background-size: 100% 100%;
             width: 400px;
             color: #FFF;
             background-color: #413f3f48;;
@@ -204,7 +204,7 @@ a{
 
 }
 .router-link-active{
-	background: rgb(157 116 25);
+	background: rgb(245 108 108);
     color: #f7f7f7;
 }
 </style>

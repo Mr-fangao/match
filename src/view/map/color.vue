@@ -123,12 +123,13 @@ import "./style/style.css"
   margin-top:4px
 }
 .Container{
- width:100%;
+ width:97%;
     height:32%;
     margin-top:10px;
     background-color: #413f3f48;
-    background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+    background-image: url("../../../static/img/buttonbg.png");
+    background-position: 10% 10%;
+    background-size: 100% 100%;
 }
 .Text1{
  width:100%;
@@ -173,8 +174,10 @@ a{
         .right-top {
             background: white;
             padding: 10px;
-            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
             background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            background-image: url("../../../static/img/buttonbg.png");
+            background-position: 10% 10%;
+            background-size: 100% 100%;
             width: 400px;
             color: #FFF;
             background-color: #413f3f48;;

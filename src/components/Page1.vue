@@ -127,9 +127,10 @@ body {
 }
 .count {
   left: 10px;
-  margin-left: 82%;
-  margin-top: 25%;
+  margin-left: 80%;
+  margin-top: 30%;
   color: rgba(0, 89, 255, 0.733);
+  background-image: url("./img/buttonbg.png");
 }
 .Container {
   height: 100%;
@@ -197,22 +198,31 @@ a {
 }
 .left1 {
   height: 33%;
-  background-color: #ffffff2d;
+  background-color: #6153a12d;
+  background-image: url("./img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .left2 {
   height: 33%;
   margin-top: 2px;
-  background-color: #ffffff2d;
+  background-color: #6153a12d;
+  background-image: url("./img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .left3 {
   height: 33%;
   margin-top: 2px;
-  background-color: #ffffff2d;
+  background-color: #6153a12d;
+  background-image: url("./img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .right-top {
-  background: white;
-  padding: 10px;
   
+  padding: 10px;
+  background-image: url("./img/buttonbg.png");
   width: 100%;
   color: #fff;
   background-color: #ffffff09;

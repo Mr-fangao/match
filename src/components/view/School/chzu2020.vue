@@ -1242,7 +1242,7 @@ p {
 <style>
 .el-button {
   padding: 12px 8px;
-  margin-left: -20px;
+  margin-left: 1px;
 }
 .el-tabs__item {
   padding: 0 35px;

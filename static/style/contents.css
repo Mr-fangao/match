@@ -301,12 +301,13 @@ pre {
 }
 
 .right-top {
-    width: 99%;
-    height: 35%;
+    width: 100%;
+    height: 33%;
     box-sizing: border-box;
     padding-top: 0.2rem;
     position: relative;
-    margin-left: 3px;
+    margin-left: 0px;
+    //background-image: url("../img/buttonbg.png");
     background-image: url("../../src/components/img/back.png");
     background-size: 100% 100%;
     background-position: 10% 10%;
