@@ -110,7 +110,7 @@
                     "
                     autocomplete="off"
                     tabindex=""
-                    placeholder="1111111111"
+                    placeholder="请输入内容"
                     style="
                       margin: 0px;
                       padding-top: 0px;
@@ -194,6 +194,7 @@
         <div class="start"></div>
       </div>
     </div>
+    
     <div class="rside" v-show="isShow">
       <div class="title">
         <i class="el-icon-caret-right" />
@@ -206,7 +207,7 @@
       >
         <el-tab-pane label="词频" name="zero">
           <div class="">
-            <div class="title">>>次频分析</div>
+            <div class="title">>>词频分析</div>
             <div class="cahartCJQ">
               <div id="CJQ" ref="Cloud" style="width: 1100px; height: 500px"></div>
             </div>
@@ -1065,6 +1066,14 @@ html {
   background-color: #413f3f1c;
   background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
 }
+.rightcip {
+  float: right;
+  height: 100%;
+  width: 74%;
+  background-color: #413f3f1c;
+  background-image: url("../img/buttonbg.png");
+}
+
 .rside {
   float: right;
   height: 100%;
@@ -1114,24 +1123,33 @@ html {
   background-color: #413f3f1c;
   height: 300px;
   border: 1px solid rgb(26 60 85);
+  background-image: url("../img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .gxf_tips {
-  margin: 15px 0 10px;
+  margin: 25px 0 10px;
   border: 1px solid rgb(26 60 85);
   padding: 20px 10px 10px 20px;
   position: relative;
+  background-image: url("../img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .gxf_tip {
   border: 1px solid #ccc;
-  padding: 2px 2px 2px 20px;
+  padding: 2px 2px 2px 2px;
   background-color: #fff;
   color: #dd4b39;
   position: absolute;
-  top: -15px;
-  left: 30px;
+  top: -25px;
+  left: 20px;
 }
 .SAset-box {
   border: 1px solid rgb(26 60 85);
+  background-image: url("../img/buttonbg.png");
+  background-position: 10% 10%;
+  background-size: 100% 100%;
 }
 .SAset-box li {
   margin-top: 10px;

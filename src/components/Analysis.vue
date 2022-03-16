@@ -216,6 +216,8 @@ export default {
     float: left;
     width: 50%;
     height: 100%;
+    //background-image: url("./img/index_bg.png");
+    background-size: 100% 100%;
     
 }
 #right{  
@@ -225,6 +227,8 @@ float: right;
     border-style: solid;
     border-color: #142436;
     height: 100%;
+    //background-image: url("./img/index_bg.png");
+    background-size: 100% 100%;
 }
 .bottom1{
     width: 100%;

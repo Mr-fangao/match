@@ -171,10 +171,11 @@
   width:400px;
   height:28%;
   margin-top:5px;
-  margin-left:3px ;
-     background-color:  #696b6d4d;   
-    background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-    background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  margin-left:0px ;
+     
+   background-image: url("../../components/img/buttonbg.png");
+            background-position: 10% 10%;
+            background-size: 100% 100%;
 }
 .Text1{
  width:100%;
@@ -201,11 +202,11 @@
   height:15%;
   margin-top:5px;
 
-  margin-left:3px ;
-  background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  margin-left:0px ;
+  background-image: url("../../components/img/buttonbg.png");
+            background-position: 10% 10%;
+            background-size: 100% 100%;
    text-align: center;
-       background-color: #74747440;
 }
 >>>.el-tabs__item{
   margin-left:65px;
@@ -222,11 +223,11 @@
   height:10%;
   margin-top:5px;
 
-  margin-left:3px ;
-  background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  margin-left:0px ;
+  background-image: url("../../components/img/buttonbg.png");
+            background-position: 10% 10%;
+            background-size: 100% 100%;
    text-align: center;
-       background-color: #74747440;
 }
 a{
 	color: #fff;/*设置字体颜色*/
@@ -243,13 +244,12 @@ a{
             z-index: 1000;
         }
         .right-top {
-            background: white;
             padding: 10px;
-            background: linear-gradient(to left, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) right top no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to bottom, #2b85e4, #2b85e4) left bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat, linear-gradient(to left, #2b85e4, #2b85e4) right bottom no-repeat;
-            background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+            background-image: url("../../components/img/buttonbg.png");
+            background-position: 10% 10%;
+            background-size: 100% 100%;
             width: 400px;
             color: #FFF;
-            background-color: #413f3f48;
             height: 300px;
         }
         .right-bottom{
