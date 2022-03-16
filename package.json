@@ -9,13 +9,13 @@
         "start": "npm run dev",
         "build": "node build/build.js"
     },
-    "optionalDependencies": {},
     "dependencies": {
         "ant-design-vue": "^1.7.8",
         "axios": "^0.21.4",
         "echarts": "^4.9.0",
         "element-ui": "^2.15.6",
         "jquery": "^3.6.0",
+        "relation-graph": "^1.1.0",
         "vue": "^2.5.2",
         "vue-amap": "^0.5.10",
         "vue-directive-tooltip": "^1.6.3",

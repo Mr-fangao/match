@@ -13,6 +13,7 @@ import Page2 from './components/Page2.vue'
 import Page3 from './components/Page3.vue'
 import Page4 from './components/view/Page4.vue'
 import Page5 from './components/view/Page5.vue'
+import Page6 from './components/Page6.vue' 
 import index from './components/login/index'
 import School from './components/view/School.vue'
 import Computer from './components/view/Game/Computer.vue'
@@ -47,6 +48,7 @@ export default [
     { path: "/Map", component: Page2 },
     { path: "/Toword", component: Page3 },
     { path: "/Photo", component: Page4 },
+    { path: "/Relation", component: Page6 },
     { path: "/AI", component: Page5 },
     { path: "/School", component: School },
     { path: "/Computer", component: Computer },

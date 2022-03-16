@@ -26,19 +26,12 @@
           >
           <router-link to="/Photo" exact class="el-icon-picture-outline-round"
             >选题分析</router-link
-          ></a
-        >
-        <el-dropdown trigger="click">
-          <span
-            id="icon"
-            class="el-icon-s-custom"
-            style="margin-left: -5px; color: #fff"
-          ></span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+          >
+          <router-link to="/Relation" exact class="el-icon-share"
+            >关系图谱</router-link
+          >
+        </a>
+        
       </li>
     </ul>
   </nav>
@@ -72,7 +65,7 @@ export default {
 #title {
   margin-left: 0px;
   font-family: "锐字潮牌真言简";
-  font-size: 33px;
+  font-size: 26px;
   letter-spacing: 5px;
 }
 #menu {
@@ -114,8 +107,8 @@ nav {
   background-color: rgb(0 34 71 / 100%);
   border-bottom-color: rgb(14 148 234 / 20%);
   border-bottom-style: outset;
-  /* background-image: url("/static/img/4.png"); */
-  background-size: 100% 100%;
+  background: url("../img/title.png")no-repeat ;
+  background-size: 43% 100%;
 }
 /*选中则发生一些变化*/
 .router-link-active {
