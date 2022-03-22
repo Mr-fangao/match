@@ -707,6 +707,7 @@ p {
   background-image: url("../../src/components/img/back.png");
   background-position: 10% 10%;
  background-size: 100% 100%;
+ height: 32.5%;
 }
 </style>
 <style>
@@ -715,15 +716,11 @@ p {
   margin-left: -20px;
 }
 .center-bottom1 {
-  background: linear-gradient(to left, #0e94eb, #0e94eb) left bottom no-repeat,
-    linear-gradient(to bottom, #0e94eb, #0e94eb) left bottom no-repeat,
-    linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat,
-    linear-gradient(to left, #0e94eb, #0e94eb) right bottom no-repeat;
-  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
   background-color: rgb(14 148 234 / 5%);
   width: 100%;
-  height: 31%;
+  height: 33%;
   margin-top: 1px;
+  
 }
 .pie1 {
   width: 50%;

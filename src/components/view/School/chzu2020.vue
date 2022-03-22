@@ -1057,10 +1057,12 @@ el-progress-bar__outer {
 }
 .left-center {
   background-color: rgb(58 83 134 / 15%);
+  top: -2%;
+  height: %;
 }
 .left-bottom {
-  
-  height: 31%;
+  top: -2%;
+  height: 34%;
 }
 .center-bottom {
   margin-top: 1px;

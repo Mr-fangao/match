@@ -48,7 +48,7 @@
                 <el-button
                   type="primary"
                   @click="Computer()"
-                  style="background: red"
+                  style="background:#f78989"
                   >{{ B1 }}</el-button
                 ><br /><br />
                 <el-button @click="Math1" style="">{{ B2 }}</el-button
@@ -1099,7 +1099,7 @@ html {
   margin-left: 65px;
   color: #fff;
 }
->>> .el-button {
+ .el-button {
   border: #0c5e9400;
   background-color: rgba(0, 0, 0, 0);
   color: rgb(221, 219, 219);
