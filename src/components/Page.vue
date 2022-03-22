@@ -97,7 +97,7 @@
         </div>
 
         <div class="right-bottom">
-          <div class="heading" style="text-align: center; height: 10%">
+          <div class="heading" style="text-align: center; height: %">
             2020-安徽省-AB类赛事-参赛热度高校排行榜
           </div>
           <div class="table" style="overflow: auto; text-align: center">
@@ -457,21 +457,19 @@ button {
   //background-color: transparent;
 }
 .time {
-  background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat,
-    linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat,
-    linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
-    linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
+  
   background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
-  background-color: rgb(14 148 234 / 5%);
+  
   height: 6%;
 }
 .heading {
   color: #fff;
   font-size: 15px;
+  height: 10%;
 }
 .table {
   width: 100%;
-  height: 90%;
+  height: 80%;
 
   color: #fff;
 }
@@ -536,7 +534,7 @@ button {
 }
 .right-bottom {
  
-  height: 68%;
+  height: 70%;
 }
 
 .select {

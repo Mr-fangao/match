@@ -38,17 +38,18 @@
               <div class="rootBar">
               <div class="childrenBar">
               <el-row>
-  <el-button type="primary">2010</el-button>
-  <el-button type="primary">2011</el-button>
-  <el-button type="primary">2012</el-button>
-  <el-button type="primary">2013</el-button>
-  <el-button type="primary">2014</el-button>
-  <el-button type="primary">2015</el-button>
-  <el-button type="primary">2016</el-button>
-  <el-button type="primary">2017</el-button>
-  <el-button type="primary">2018</el-button>
-  <el-button type="primary"style="background-color:#f78989">2019</el-button>
   <el-button type="danger"@click="data2020()">2020</el-button>
+  <el-button type="primary"style="background-color:#f78989">2019</el-button>
+  <el-button type="primary">2018</el-button>
+  <el-button type="primary">2017</el-button>
+  <el-button type="primary">2016</el-button>
+  <el-button type="primary">2015</el-button>
+  <el-button type="primary">2014</el-button>
+  <el-button type="primary">2013</el-button>
+  <el-button type="primary">2012</el-button>
+  <el-button type="primary">2011</el-button>
+  
+  
 </el-row>
               
               </div>

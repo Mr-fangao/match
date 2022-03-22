@@ -1080,7 +1080,7 @@ el-progress-bar__outer {
   color: #fff;
 }
 .right-bottom {
-  
+  top:2%;
   height: 61%;
 }
 >>> .el-select {

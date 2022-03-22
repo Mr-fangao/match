@@ -316,9 +316,9 @@ pre {
 
 .right-bottom {
     width: 99%;
-    height: 65%;
+    height: 71%;
     position: relative;
-    margin-top: 1px;
+    margin-top: -15px;
     margin-left: 3px;
     background-image: url("../../src/components/img/back.png");
     background-size: 100% 100%;

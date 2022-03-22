@@ -42,10 +42,11 @@
         option = {
             title: {
                 text: "2020-安徽省高校-AB类赛事-参赛榜",
-                left: '20%',
+                left: '5%',
+                top:'5%',
 
                 textStyle: {
-                    color: "#fff",
+                    color: "#4cccff",
                     fontFamily: "Microsoft YaHei",
                     fontSize: "15",
                     fontWeight: "150",
@@ -68,7 +69,7 @@
             },
             legend: {
                 left: 'right',
-                top: '0%',
+                top: '6%',
                 textStyle: {
                     color: "#FFFFFF",
                 },
@@ -126,12 +127,14 @@
                 }
             },
             color: ['#fac858', '#73c0de'],
+            
 
             series: [{
                     barwidth: 5,
                     name: '国赛',
                     type: 'bar',
                     stack: 'total',
+                    top:'10%',
 
                     emphasis: {
                         focus: 'series'
@@ -142,6 +145,7 @@
                     name: '省赛',
                     type: 'bar',
                     stack: 'total',
+                    top:'10%',
                     label: {
                         show: true,
                         position: 'right',
