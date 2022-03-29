@@ -8,7 +8,7 @@
        <div class="box-left">
             <div class="left-top"style="">
            
-            <div id="left">
+            <div id="left6">
             <div class="people1">
             <div class="text1"style="float:left">报名人数：</div>
             <div class="data">{{people}}人</div>
@@ -19,14 +19,14 @@
              
              </div>
              </div>
-            <div id="right">
+            <div id="right6">
             <div class="percent">
             <el-progress :text-inside="true" :stroke-width="22" :percentage="12"></el-progress></div>
               <div class="percent1">
               <el-progress :text-inside="true" :stroke-width="22" :percentage="17.5"></el-progress>
              </div>
              </div>
-             <div id="left1"> 
+             <div id="left6"> 
              <div style="text-align:center;font-size:15px">参赛学院：15个</div>
              <div class="cellege">
              <div  class="alt"style="text-align:center">地信学院
@@ -47,7 +47,7 @@
              </div>
              </div>
               </div>
-             <div id="right1">  
+             <div id="right6">  
               <div style="text-align:center;font-size:15px">参赛种类</div>
              <div class="cellege">
              <div  class="alt1"style="text-align:center">A类
@@ -60,7 +60,7 @@
              </div>
             </div>
             <div class="left-center">
-            <div style="height:10%;margin-left:30%;color: #fff;fontFamily: Microsoft YaHei;fontSize: 15;fontWeight: 150">2020-滁州学院-AB类赛事-赛事类型</div>
+            <div style="height:0%;top:10%;margin-left:30%;color: #fff;fontFamily: Microsoft YaHei;fontSize: 15;fontWeight: 150">2020-滁州学院-AB类赛事-赛事类型</div>
            <div id="myChart" :style="{ width: '100%', height: '100%',top:'10%',position:'absolute' }"></div>
             </div>
             <div class="left-bottom" >
@@ -928,8 +928,8 @@ export default {
           textStyle: {
             color: "#fff",
             fontFamily: "Microsoft YaHei",
-            fontSize: "15",
-            fontWeight: "150",
+            fontSize: "13",
+            fontWeight: "100",
           },
         },
         //配置维度的最大值
@@ -946,11 +946,11 @@ export default {
           left: "10%",
           right: "10%",
           bottom: "15%",
-          top: "30%",
+          top: "40%",
         },
         series: [
           {
-            top: "20%",
+            top: "30%",
             type: "radar",
             label: {
               show: false, //显示数值
@@ -1047,13 +1047,11 @@ el-progress-bar__outer {
 }
 
 .left-top {
-  background: linear-gradient(to left, #0e94eb, #0e94eb) left top no-repeat,
-    linear-gradient(to bottom, #0e94eb, #0e94eb) left top no-repeat,
-    linear-gradient(to left, #0e94eb, #0e94eb) right top no-repeat,
-    linear-gradient(to bottom, #0e94eb, #0e94eb) right top no-repeat;
-  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+  background-image: url("../../../components/img/back.png");
   background-color: rgb(58 83 134 / 15%);
   height: 34%;
+  background-size: 100% 100%;
+    background-position: 10% 10%;
 }
 .left-center {
   background-color: rgb(58 83 134 / 15%);
@@ -1070,7 +1068,6 @@ el-progress-bar__outer {
   background-color: rgb(58 83 134 / 15%);
 }
 .right-top {
-  
   height: 31%;
 }
 .right-center {
@@ -1082,7 +1079,7 @@ el-progress-bar__outer {
   color: #fff;
 }
 .right-bottom {
-  top:2%;
+  top: 2%;
   height: 61%;
 }
 >>> .el-select {
@@ -1270,7 +1267,6 @@ p {
   background-color: #fff;
 }
 .center-bottom1 {
-  
   width: 100%;
   height: 27%;
   margin-top: 1px;

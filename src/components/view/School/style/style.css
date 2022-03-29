@@ -32,6 +32,13 @@
     background-position: 10% 10%;
 }
 
+#left6 {
+    float: left;
+    width: 50%;
+    height: 45%;
+    /* padding: 5px; */
+    background-color: rgb(58 83 134 / 15%);
+}
 #right {
     float: right;
     width: 50%;
@@ -65,6 +72,15 @@
     background-image: url("../../../img/back.png");
     background-size: 100% 100%;
     background-position: 10% 10%;
+}
+
+#right6 {
+    float: right;
+    width: 49.5%;
+    height: 45%;
+    margin-top: 2px;
+    /* padding: 5px; */
+    background-color: rgb(58 83 134 / 15%);
 }
 
 .text1 {

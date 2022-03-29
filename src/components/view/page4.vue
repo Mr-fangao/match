@@ -205,14 +205,7 @@
         type="border-card"
         @tab-click="handleClick1"
       >
-        <el-tab-pane label="词频" name="zero">
-          <div class="">
-            <div class="title">>>词频分析</div>
-            <div class="cahartCJQ">
-              <div id="CJQ" ref="Cloud" style="width: 1100px; height: 500px"></div>
-            </div>
-          </div>
-        </el-tab-pane>
+       
         <el-tab-pane label="趋势分析" name="first">
           <div class="">
             <div class="title">>>选题趋势分析</div>
