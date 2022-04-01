@@ -97,7 +97,7 @@
         </div>
 
         <div class="right-bottom">
-          <div class="heading" style="text-align: center; height: %">
+          <div class="heading" style="text-align: left;">
             2020-安徽省-AB类赛事-参赛热度高校排行榜
           </div>
           <div class="table" style="overflow: auto; text-align: center">
@@ -466,7 +466,9 @@ button {
   color: #fff;
   font-size: 15px;
   height: 10%;
-}
+  padding-top: 6%;
+  padding-left: 5%;
+  }
 .table {
   width: 100%;
   height: 80%;

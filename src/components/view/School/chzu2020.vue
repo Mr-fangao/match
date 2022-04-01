@@ -60,8 +60,8 @@
              </div>
             </div>
             <div class="left-center">
-            <div style="height:0%;top:10%;margin-left:30%;color: #fff;fontFamily: Microsoft YaHei;fontSize: 15;fontWeight: 150">2020-滁州学院-AB类赛事-赛事类型</div>
-           <div id="myChart" :style="{ width: '100%', height: '100%',top:'10%',position:'absolute' }"></div>
+            <div style="height:0%;top:10%;margin-left:0%;padding-top:2.5%;color: #fff;fontFamily: Microsoft YaHei;fontSize: 15;fontWeight: 150">2020-滁州学院-AB类赛事-赛事类型</div>
+           <div id="myChart" :style="{ width: '100%', height: '100%', top:'12%',position:'absolute' }"></div>
             </div>
             <div class="left-bottom" >
              <iframe src="./static/chzu/nianfen.html"frameborder="0"  scrolling="no"style="width:100%;height:100%;"></iframe>
@@ -262,7 +262,7 @@
           
            </div>     
      <div class="right-bottom">
-    <div class="heading"style="text-align:center;height:7%">2020-滁州学院-AB类赛事-导师获奖排行榜</div>
+    <div class="heading"style="text-align:left;height:7%">2020-滁州学院-AB类赛事-导师获奖排行榜</div>
             <div class="table"style="overflow:auto;text-align:center;">
             
             <div >
@@ -1031,11 +1031,13 @@ button {
 .heading {
   color: #fff;
   font-size: 15px;
+  padding-top: 5.5%;
+  padding-left: 4%;
 }
 .table {
   width: 100%;
   height: 90%;
-
+    padding-top: 2%;
   color: #fff;
 }
 el-progress-bar__outer {
