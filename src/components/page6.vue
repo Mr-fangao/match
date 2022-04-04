@@ -1,6 +1,147 @@
 <template>
-  <div>
-    <div id="relation" style="width: 100%; height: 1000px"></div>
+  <div id="relations">
+    <div id="relation" style="width: 70%; height: 90%"></div>
+    <div class="right">
+      <div class="gjd">
+        <el-row :gutter="20">
+          <el-col :span="6"><span>根节点:</span></el-col>
+          <el-col :span="18">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value1" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options1"
+                    :key="item.value1"
+                    :label="item.label1"
+                    :value="item.value1"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="6"><span>过滤条件:</span></el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value2" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options2"
+                    :key="item.value2"
+                    :label="item.label2"
+                    :value="item.value2"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-input v-model="input1" placeholder=" 输入内容"></el-input>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="cjd">
+        <el-row :gutter="20">
+          <el-col :span="6"><span>次节点:</span></el-col>
+          <el-col :span="18">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value3" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options3"
+                    :key="item.value3"
+                    :label="item.label3"
+                    :value="item.value3"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="6"><span>过滤条件:</span></el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value4" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options4"
+                    :key="item.value4"
+                    :label="item.label4"
+                    :value="item.value4"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-input v-model="input2" placeholder=" 输入内容"></el-input>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="zjd">
+        <el-row :gutter="20">
+          <el-col :span="6"><span>子节点:</span></el-col>
+          <el-col :span="18">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value5" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options5"
+                    :key="item.value5"
+                    :label="item.label5"
+                    :value="item.value5"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="6"><span>过滤条件:</span></el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-select v-model="value6" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in options6"
+                    :key="item.value6"
+                    :label="item.label6"
+                    :value="item.value6"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </div>
+          </el-col>
+          <el-col :span="9">
+            <div class="grid-content bg-specially">
+              <div class="tab">
+                <el-input v-model="input3" placeholder=" 输入内容"></el-input>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="btn">
+        <el-button @click="skanalysis()">开始分析</el-button
+        ><el-button @click="clear()">重置选择</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -8,6 +149,55 @@
 import echarts from "echarts";
 export default {
   name: "relationGraph",
+  data() {
+    return {
+      options1: [
+        {
+          value1: "选项1",
+          label1: "黄金糕",
+        },
+      ],
+      options2: [
+        {
+          value2: "选项1",
+          label2: "黄金糕",
+        },
+      ],
+      options3: [
+        {
+          value3: "选项1",
+          label3: "黄金糕",
+        },
+      ],
+      options4: [
+        {
+          value4: "选项1",
+          label4: "黄金糕",
+        },
+      ],
+      options5: [
+        {
+          value5: "选项1",
+          label5: "黄金糕",
+        },
+      ],
+      options6: [
+        {
+          value6: "选项1",
+          label6: "黄金糕",
+        },
+      ],
+      value1: "",
+      value2: "",
+      value3: "",
+      value4: "",
+      value5: "",
+      value6: "",
+      input1: "",
+      input2: "",
+      input3: "",
+    };
+  },
   methods: {
     drawChart() {
       // 基于准备好的dom，初始化echarts实例
@@ -505,7 +695,7 @@ export default {
                 name: "赵玉艳",
                 symbolSize: 50,
               },
-              
+
               {
                 name: "李振洋",
                 symbolSize: 50,
@@ -674,12 +864,12 @@ export default {
                 name: "金灿",
                 symbolSize: 50,
               },
-              
+
               {
                 name: "撒后余",
                 symbolSize: 50,
               },
-              
+
               {
                 name: "COVID-19疫情多尺度智能监控与预警系统",
                 symbolSize: 50,
@@ -723,171 +913,224 @@ export default {
               {
                 name: "鼓起凤鸣",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "洄锦充电桩",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "如鱼得水——窗花造型直饮机设计",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "滁州十二景",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "十二生肖数字插画",
                 symbolSize: 50,
               },
               {
                 name: "泥土涅槃",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "醉翁亭与欧阳修系列故事",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "大话数据库之概念模型",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "话说5G",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于vue滁州市环境污染分析系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于大数据的疫情数据分析系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于Spark的国际足球数据分析系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "冬去春来",
                 symbolSize: 50,
               },
               {
                 name: "基于眼球定位的翻书系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "SmartAgent基于AI的社区老人生活辅助系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "AA-校园拼游网",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "安徽省县域农村精准扶贫空间分析系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "ResC资源回收服务系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "健康帮扶系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "面向实时共享出行的网约车智能调度系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "色影·梦桥相会",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "晋中醯",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "百年宏音-笙乐天成",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "琅琊遇醉翁",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "小城春节",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "国学趣学",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "颂经典-扬文化",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "纸卷打印机",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "车王村景观规划",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "铜胎掐丝珐琅之美",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "南宋风华",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "从军行·其四赏析",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "青少年管家--智能书桌系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "脑电控制的FeedingRobot",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于flask和ajax的糖尿病数据可视化平台",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于JavaWeb与ECharts的疫情数据可视化系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "榫卯建筑·阴阳相生",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于ELK和Kafka的Web日志实时分析系统",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "星火",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "小咕咚睡前故事屋",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "雨霖铃",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "欧梅亭韵",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "素釉·彩韵流芳",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "金石志",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "守艺",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "传艺承情",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "speed",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "匠心传承，食在民间",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "时间序列",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "青玉案.元夕",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "唐宋古韵微课",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "“影子”的秘密",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "帮帮盲",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于脑机接口的智能轮椅",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于滁州养老数据的可视化展示",
                 symbolSize: 50,
-              },{
+              },
+              {
                 name: "基于NLP实现社会舆情分析与数据可视化",
                 symbolSize: 50,
               },
@@ -1528,272 +1771,338 @@ export default {
                 target: "十二生肖",
                 value: "一等奖",
               },
-                            {
+              {
                 source: "滁州学院",
-				target: "COVID-19疫情多尺度智能监控与预警系统",
+                target: "COVID-19疫情多尺度智能监控与预警系统",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于机器学习的恶意PE文件检测系统",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "化茧成蝶",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "锦绣金陵",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "髹漆成器",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "纸艺刻韵",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "青铜器·铸",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "刻意江南",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "中华原酿-薪火相传",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "十二生肖",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "鼓起凤鸣",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "洄锦充电桩",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "如鱼得水——窗花造型直饮机设计",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "滁州十二景",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "十二生肖数字插画",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "泥土涅槃",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "醉翁亭与欧阳修系列故事",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "大话数据库之概念模型",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "话说5G",
                 value: "一等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于vue滁州市环境污染分析系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于大数据的疫情数据分析系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于Spark的国际足球数据分析系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "冬去春来",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于眼球定位的翻书系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "SmartAgent基于AI的社区老人生活辅助系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "AA-校园拼游网",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "安徽省县域农村精准扶贫空间分析系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "ResC资源回收服务系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "健康帮扶系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "面向实时共享出行的网约车智能调度系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "色影·梦桥相会",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "晋中醯",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "百年宏音-笙乐天成",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "琅琊遇醉翁",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "小城春节",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "国学趣学",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "颂经典-扬文化",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "纸卷打印机",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "车王村景观规划",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "铜胎掐丝珐琅之美",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "南宋风华",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "从军行·其四赏析",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "青少年管家--智能书桌系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "脑电控制的FeedingRobot",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于flask和ajax的糖尿病数据可视化平台",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于JavaWeb与ECharts的疫情数据可视化系统",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "榫卯建筑·阴阳相生",
                 value: "二等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于ELK和Kafka的Web日志实时分析系统",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "星火",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "小咕咚睡前故事屋",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "雨霖铃",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "欧梅亭韵",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "素釉·彩韵流芳",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "金石志",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "守艺",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "传艺承情",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "speed",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "匠心传承，食在民间",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "时间序列",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "青玉案.元夕",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "唐宋古韵微课",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "“影子”的秘密",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "帮帮盲",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于脑机接口的智能轮椅",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "“育婴帮”智能照护系统",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于滁州养老数据的可视化展示",
                 value: "三等奖",
-              },{
-			  source: "滁州学院",
+              },
+              {
+                source: "滁州学院",
                 target: "基于NLP实现社会舆情分析与数据可视化",
                 value: "三等奖",
               },
@@ -2186,3 +2495,111 @@ export default {
   },
 };
 </script>
+<style scoped>
+#relations {
+  height: 691px;
+  background-image: url("view/img/index_bg.png");
+  width: 100%;
+  float: right;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+}
+.right {
+  width: 28%;
+  height: 94%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  /* justify-content: center; */
+  color: #fff;
+  margin: 1% 1%;
+}
+.gjd {
+  width: 95%;
+  height: 20%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+}
+.cjd {
+  width: 95%;
+  height: 20%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+}
+.zjd {
+  width: 95%;
+  height: 20%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) left top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) right top no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) left bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat,
+    linear-gradient(#4780f3) right bottom no-repeat;
+  background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+}
+.el-row {
+  height: 35px;
+  width: 98%;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.el-col span {
+  margin-left: 10px;
+}
+.el-select {
+  height: 35px;
+  width: 100%;
+}
+.el-select >>> .el-input--suffix .el-input__inner {
+  height: 35px;
+}
+.tab >>> .el-input__inner {
+  height: 35px;
+}
+.tab >>> .el-input__icon {
+  line-height: 35px;
+}
+.el-button {
+  margin: 20px;
+}
+</style>
