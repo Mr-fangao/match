@@ -1615,8 +1615,8 @@ export default {
           value: "三等奖",
         },
         {
-          source: "滁州学院",
-          target: "中国大学生计算机设计大赛",
+          source: "中国大学生计算机设计大赛",
+          target: "滁州学院",
           value: "参赛学校",
         },
         {
@@ -2383,248 +2383,433 @@ export default {
       ],
       data2: [
         {
-          name: "中国大学生计算机设计大赛",
+          name: "滁州学院",
+          symbolSize: 100,
+          //节点图形的样式
+          itemStyle: {
+            color: "#5faee3",
+          },
         },
         {
           name: "杨灿灿",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "邓凯",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "陈海宝",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "赵玉艳",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
 
         {
           name: "李振洋",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "施韵佳",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "潘宏",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "冷荣亮",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "陈一笑",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "叶涛",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "刘竞遥",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "胡晓静",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "赵亚飞",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张丽惠",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "甘翔",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张悦",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "吴玉",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "左铁峰",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "朱金鑫",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张巧云",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "刘国秀",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "何君洁",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "于春燕",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "马良",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "徐志红",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "陈芳",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "董再秀",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "方纯",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "赵生慧",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "董锐",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "温卫敏",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "金亮",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "赵亮",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "刘进军",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "季璇",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "吴豹",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "孙勇",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "崔华国",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "申思达",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "孙凯传",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "郑娟",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "邵雪梅",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "高来鑫",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张珂",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "李玲纯",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "金灿",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "撒后余",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "任倩",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "王玉亮",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "陈杰",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "徐阳",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "沈晓",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "丁刚",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "赵亭",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张静",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "江梅梅",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "任丽颖",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "郭华",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张海洋",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "张志远",
-          symbolSize: 50,
+          symbolSize: 80,
+          itemStyle: {
+            color: "#f4a460",
+          },
         },
         {
           name: "COVID-19疫情多尺度智能监控与预警系统",
@@ -2850,993 +3035,913 @@ export default {
           name: "传艺承情",
           symbolSize: 50,
         },
-        {
-          name: "speed",
-          symbolSize: 50,
-        },
-        {
-          name: "匠心传承，食在民间",
-          symbolSize: 50,
-        },
-        {
-          name: "时间序列",
-          symbolSize: 50,
-        },
-        {
-          name: "青玉案.元夕",
-          symbolSize: 50,
-        },
-        {
-          name: "唐宋古韵微课",
-          symbolSize: 50,
-        },
-        {
-          name: "“影子”的秘密",
-          symbolSize: 50,
-        },
-        {
-          name: "帮帮盲",
-          symbolSize: 50,
-        },
-        {
-          name: "基于脑机接口的智能轮椅",
-          symbolSize: 50,
-        },
-        {
-          name: "基于滁州养老数据的可视化展示",
-          symbolSize: 50,
-        },
-        {
-          name: "基于NLP实现社会舆情分析与数据可视化",
-          symbolSize: 50,
-        },
+        // {
+        //   name: "speed",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "匠心传承，食在民间",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "时间序列",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "青玉案.元夕",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "唐宋古韵微课",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "“影子”的秘密",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "帮帮盲",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "基于脑机接口的智能轮椅",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "基于滁州养老数据的可视化展示",
+        //   symbolSize: 50,
+        // },
+        // {
+        //   name: "基于NLP实现社会舆情分析与数据可视化",
+        //   symbolSize: 50,
+        // },
       ],
       links2: [
+        // {
+        //   source: "中国大学生计算机设计大赛",
+        //   target: "滁州学院",
+        //   value: "参赛院校",
+        // },
         {
           source: "滁州学院",
-          target: "COVID-19疫情多尺度智能监控与预警系统",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于机器学习的恶意PE文件检测系统",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "化茧成蝶",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "锦绣金陵",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "髹漆成器",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "纸艺刻韵",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "青铜器·铸",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "刻意江南",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "中华原酿-薪火相传",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "十二生肖",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "COVID-19疫情多尺度智能监控与预警系统",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于机器学习的恶意PE文件检测系统",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "化茧成蝶",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "锦绣金陵",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "髹漆成器",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "纸艺刻韵",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "青铜器·铸",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "刻意江南",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "中华原酿-薪火相传",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "十二生肖",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "鼓起凤鸣",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "洄锦充电桩",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "如鱼得水——窗花造型直饮机设计",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "滁州十二景",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "十二生肖数字插画",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "泥土涅槃",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "醉翁亭与欧阳修系列故事",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "大话数据库之概念模型",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "话说5G",
-          value: "一等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于vue滁州市环境污染分析系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于大数据的疫情数据分析系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于Spark的国际足球数据分析系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "冬去春来",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于眼球定位的翻书系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "SmartAgent基于AI的社区老人生活辅助系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "AA-校园拼游网",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "安徽省县域农村精准扶贫空间分析系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "ResC资源回收服务系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "健康帮扶系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "面向实时共享出行的网约车智能调度系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "色影·梦桥相会",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "晋中醯",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "百年宏音-笙乐天成",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "琅琊遇醉翁",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "小城春节",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "国学趣学",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "颂经典-扬文化",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "纸卷打印机",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "车王村景观规划",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "铜胎掐丝珐琅之美",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "南宋风华",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "从军行·其四赏析",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "青少年管家--智能书桌系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "脑电控制的FeedingRobot",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于flask和ajax的糖尿病数据可视化平台",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于JavaWeb与ECharts的疫情数据可视化系统",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "榫卯建筑·阴阳相生",
-          value: "二等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于ELK和Kafka的Web日志实时分析系统",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "星火",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "小咕咚睡前故事屋",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "雨霖铃",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "欧梅亭韵",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "素釉·彩韵流芳",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "金石志",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "守艺",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "传艺承情",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "speed",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "匠心传承，食在民间",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "时间序列",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "青玉案.元夕",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "唐宋古韵微课",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "“影子”的秘密",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "帮帮盲",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于脑机接口的智能轮椅",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "“育婴帮”智能照护系统",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于滁州养老数据的可视化展示",
-          value: "三等奖",
-        },
-        {
-          source: "滁州学院",
-          target: "基于NLP实现社会舆情分析与数据可视化",
-          value: "三等奖",
-        },
-        {
-          source: "COVID-19疫情多尺度智能监控与预警系统",
-          target: "邓凯",
-          value: "指导教师",
-        },
-        {
-          source: "COVID-19疫情多尺度智能监控与预警系统",
           target: "杨灿灿",
           value: "指导教师",
         },
         {
-          source: "基于机器学习的恶意PE文件检测系统",
+          source: "滁州学院",
+          target: "邓凯",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
           target: "陈海宝",
           value: "指导教师",
         },
         {
-          source: "基于机器学习的恶意PE文件检测系统",
+          source: "滁州学院",
           target: "赵玉艳",
           value: "指导教师",
         },
+
         {
-          source: "化茧成蝶",
+          source: "滁州学院",
           target: "李振洋",
           value: "指导教师",
         },
         {
-          source: "化茧成蝶",
-          target: "撒后余",
-          value: "指导教师",
-        },
-        {
-          source: "锦绣金陵",
+          source: "滁州学院",
           target: "施韵佳",
           value: "指导教师",
         },
         {
-          source: "锦绣金陵",
+          source: "滁州学院",
           target: "潘宏",
           value: "指导教师",
         },
         {
-          source: "髹漆成器",
+          source: "滁州学院",
           target: "冷荣亮",
           value: "指导教师",
         },
         {
-          source: "纸艺刻韵",
-          target: "冷荣亮",
-          value: "指导教师",
-        },
-        {
-          source: "青铜器·铸",
+          source: "滁州学院",
           target: "陈一笑",
           value: "指导教师",
         },
         {
-          source: "青铜器·铸",
+          source: "滁州学院",
           target: "叶涛",
           value: "指导教师",
         },
         {
-          source: "刻意江南",
-          target: "李振洋",
-          value: "指导教师",
-        },
-        {
-          source: "刻意江南",
-          target: "施韵佳",
-          value: "指导教师",
-        },
-        {
-          source: "中华原酿-薪火相传",
+          source: "滁州学院",
           target: "刘竞遥",
           value: "指导教师",
         },
         {
-          source: "中华原酿-薪火相传",
+          source: "滁州学院",
           target: "胡晓静",
           value: "指导教师",
         },
         {
-          source: "十二生肖",
+          source: "滁州学院",
           target: "赵亚飞",
           value: "指导教师",
         },
         {
-          source: "十二生肖",
+          source: "滁州学院",
           target: "张丽惠",
           value: "指导教师",
         },
         {
-          source: "鼓起凤鸣",
+          source: "滁州学院",
+          target: "甘翔",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
           target: "张悦",
           value: "指导教师",
         },
         {
-          source: "鼓起凤鸣",
-          target: "甘翔",
-          value: "指导教师",
-        },
-        {
-          source: "洄锦充电桩",
-          target: "左铁峰",
-          value: "指导教师",
-        },
-        {
-          source: "洄锦充电桩",
+          source: "滁州学院",
           target: "吴玉",
           value: "指导教师",
         },
         {
-          source: "如鱼得水——窗花造型直饮机设计",
-          target: "甘翔",
+          source: "滁州学院",
+          target: "左铁峰",
           value: "指导教师",
         },
         {
-          source: "滁州十二景",
-          target: "叶涛",
-          value: "指导教师",
-        },
-        {
-          source: "滁州十二景",
-          target: "冷荣亮",
-          value: "指导教师",
-        },
-        {
-          source: "十二生肖数字插画",
+          source: "滁州学院",
           target: "朱金鑫",
           value: "指导教师",
         },
         {
-          source: "泥土涅槃",
-          target: "刘国秀",
-          value: "指导教师",
-        },
-        {
-          source: "泥土涅槃",
+          source: "滁州学院",
           target: "张巧云",
           value: "指导教师",
         },
         {
-          source: "醉翁亭与欧阳修系列故事",
-          target: "何君洁",
-          value: "指导教师",
-        },
-        {
-          source: "大话数据库之概念模型",
-          target: "于春燕",
-          value: "指导教师",
-        },
-        {
-          source: "大话数据库之概念模型",
-          target: "马良",
-          value: "指导教师",
-        },
-        {
-          source: "话说5G",
-          target: "徐志红",
-          value: "指导教师",
-        },
-        {
-          source: "话说5G",
-          target: "徐志红",
-          value: "指导教师",
-        },
-        {
-          source: "基于vue滁州市环境污染分析系统",
-          target: "陈芳",
-          value: "指导教师",
-        },
-        {
-          source: "基于vue滁州市环境污染分析系统",
+          source: "滁州学院",
           target: "刘国秀",
           value: "指导教师",
         },
         {
-          source: "基于大数据的疫情数据分析系统",
-          target: "方纯",
+          source: "滁州学院",
+          target: "何君洁",
           value: "指导教师",
         },
         {
-          source: "基于大数据的疫情数据分析系统",
-          target: "董再秀",
+          source: "滁州学院",
+          target: "于春燕",
           value: "指导教师",
         },
         {
-          source: "基于Spark的国际足球数据分析系统",
-          target: "赵生慧",
-          value: "指导教师",
-        },
-        {
-          source: "基于Spark的国际足球数据分析系统",
-          target: "陈海宝",
-          value: "指导教师",
-        },
-        {
-          source: "冬去春来",
-          target: "郭雪燕",
-          value: "指导教师",
-        },
-        {
-          source: "冬去春来",
-          target: "董锐",
-          value: "指导教师",
-        },
-        {
-          source: "基于眼球定位的翻书系统",
-          target: "金亮",
-          value: "指导教师",
-        },
-        {
-          source: "基于眼球定位的翻书系统",
-          target: "温卫敏",
-          value: "指导教师",
-        },
-        {
-          source: "SmartAgent基于AI的社区老人生活辅助系统",
-          target: "刘进军",
-          value: "指导教师",
-        },
-        {
-          source: "SmartAgent基于AI的社区老人生活辅助系统",
-          target: "赵亮",
-          value: "指导教师",
-        },
-        {
-          source: "AA-校园拼游网",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "AA-校园拼游网",
-          target: "刘竞遥",
-          value: "指导教师",
-        },
-        {
-          source: "安徽省县域农村精准扶贫空间分析系统",
-          target: "杨灿灿",
-          value: "指导教师",
-        },
-        {
-          source: "安徽省县域农村精准扶贫空间分析系统",
-          target: "邓凯",
-          value: "指导教师",
-        },
-        {
-          source: "ResC资源回收服务系统",
-          target: "季璇",
-          value: "指导教师",
-        },
-        {
-          source: "ResC资源回收服务系统",
-          target: "刘竞遥",
-          value: "指导教师",
-        },
-        {
-          source: "健康帮扶系统",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "健康帮扶系统",
-          target: "刘竞遥",
-          value: "指导教师",
-        },
-        {
-          source: "面向实时共享出行的网约车智能调度系统",
-          target: "孙勇",
-          value: "指导教师",
-        },
-        {
-          source: "色影·梦桥相会",
-          target: "潘宏",
-          value: "指导教师",
-        },
-        {
-          source: "色影·梦桥相会",
-          target: "崔华国",
-          value: "指导教师",
-        },
-        {
-          source: "晋中醯",
-          target: "崔华国",
-          value: "指导教师",
-        },
-        {
-          source: "晋中醯",
-          target: "申思达",
-          value: "指导教师",
-        },
-        {
-          source: "百年宏音-笙乐天成",
-          target: "潘宏",
-          value: "指导教师",
-        },
-        {
-          source: "百年宏音-笙乐天成",
-          target: "申思达",
-          value: "指导教师",
-        },
-        {
-          source: "琅琊遇醉翁",
-          target: "孙凯传",
-          value: "指导教师",
-        },
-        {
-          source: "琅琊遇醉翁",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "小城春节",
-          target: "郑娟",
-          value: "指导教师",
-        },
-        {
-          source: "小城春节",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "国学趣学",
-          target: "邵雪梅",
-          value: "指导教师",
-        },
-        {
-          source: "国学趣学",
-          target: "孙凯传",
-          value: "指导教师",
-        },
-        {
-          source: "颂经典-扬文化",
-          target: "李玲纯",
-          value: "指导教师",
-        },
-        {
-          source: "颂经典-扬文化",
-          target: "高来鑫",
-          value: "指导教师",
-        },
-        {
-          source: "纸卷打印机",
-          target: "左铁峰",
-          value: "指导教师",
-        },
-        {
-          source: "纸卷打印机",
-          target: "吴玉",
-          value: "指导教师",
-        },
-        {
-          source: "车王村景观规划",
-          target: "金灿",
-          value: "指导教师",
-        },
-        {
-          source: "车王村景观规划",
-          target: "张珂",
-          value: "指导教师",
-        },
-        {
-          source: "铜胎掐丝珐琅之美",
-          target: "叶涛",
-          value: "指导教师",
-        },
-        {
-          source: "铜胎掐丝珐琅之美",
-          target: "陈一笑",
-          value: "指导教师",
-        },
-        {
-          source: "南宋风华",
-          target: "刘竞遥",
-          value: "指导教师",
-        },
-        {
-          source: "南宋风华",
-          target: "任倩",
-          value: "指导教师",
-        },
-        {
-          source: "从军行·其四赏析",
-          target: "方纯",
-          value: "指导教师",
-        },
-        {
-          source: "从军行·其四赏析",
-          target: "徐志红",
-          value: "指导教师",
-        },
-        {
-          source: "青少年管家--智能书桌系统",
-          target: "王玉亮",
-          value: "指导教师",
-        },
-        {
-          source: "青少年管家--智能书桌系统",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "脑电控制的FeedingRobot",
-          target: "吴豹",
-          value: "指导教师",
-        },
-        {
-          source: "脑电控制的FeedingRobot",
-          target: "温卫敏",
-          value: "指导教师",
-        },
-        {
-          source: "基于flask和ajax的糖尿病数据可视化平台",
-          target: "陈海宝",
-          value: "指导教师",
-        },
-        {
-          source: "基于flask和ajax的糖尿病数据可视化平台",
-          target: "陈杰",
-          value: "指导教师",
-        },
-        {
-          source: "基于JavaWeb与ECharts的疫情数据可视化系统",
+          source: "滁州学院",
           target: "马良",
           value: "指导教师",
         },
         {
-          source: "基于JavaWeb与ECharts的疫情数据可视化系统",
-          target: "徐阳",
-          value: "指导教师",
-        },
-        {
-          source: "榫卯建筑·阴阳相生",
-          target: "沈晓",
-          value: "指导教师",
-        },
-        {
-          source: "榫卯建筑·阴阳相生",
-          target: "丁刚",
-          value: "指导教师",
-        },
-        {
-          source: "基于ELK和Kafka的Web日志实时分析系统",
-          target: "赵玉艳",
-          value: "指导教师",
-        },
-        {
-          source: "基于ELK和Kafka的Web日志实时分析系统",
-          target: "赵亭",
-          value: "指导教师",
-        },
-        {
-          source: "星火",
-          target: "张静",
-          value: "指导教师",
-        },
-        {
-          source: "星火",
-          target: "郭雪艳",
-          value: "指导教师",
-        },
-        {
-          source: "小咕咚睡前故事屋",
+          source: "滁州学院",
           target: "徐志红",
           value: "指导教师",
         },
         {
-          source: "小咕咚睡前故事屋",
-          target: "刘竞遥",
+          source: "滁州学院",
+          target: "陈芳",
           value: "指导教师",
         },
         {
-          source: "雨霖铃",
-          target: "李振洋",
+          source: "滁州学院",
+          target: "董再秀",
           value: "指导教师",
         },
         {
-          source: "雨霖铃",
-          target: "陈一笑",
+          source: "滁州学院",
+          target: "方纯",
           value: "指导教师",
         },
         {
-          source: "欧梅亭韵",
-          target: "冷荣亮",
+          source: "滁州学院",
+          target: "赵生慧",
           value: "指导教师",
         },
         {
-          source: "素釉·彩韵流芳",
+          source: "滁州学院",
+          target: "董锐",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "温卫敏",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "金亮",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "赵亮",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "刘进军",
+        },
+        {
+          source: "滁州学院",
+          target: "季璇",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "吴豹",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "孙勇",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "崔华国",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
           target: "申思达",
           value: "指导教师",
         },
         {
-          source: "素釉·彩韵流芳",
-          target: "潘宏",
+          source: "滁州学院",
+          target: "孙凯传",
           value: "指导教师",
         },
         {
-          source: "金石志",
-          target: "朱金鑫",
+          source: "滁州学院",
+          target: "郑娟",
           value: "指导教师",
         },
         {
-          source: "金石志",
-          target: "申思达",
+          source: "滁州学院",
+          target: "邵雪梅",
           value: "指导教师",
         },
         {
-          source: "守艺",
+          source: "滁州学院",
+          target: "高来鑫",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "张珂",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "李玲纯",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
           target: "金灿",
           value: "指导教师",
         },
         {
-          source: "守艺",
-          target: "吴玉",
+          source: "滁州学院",
+          target: "撒后余",
           value: "指导教师",
         },
         {
-          source: "传艺承情",
+          source: "滁州学院",
+          target: "任倩",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "王玉亮",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "陈杰",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "徐阳",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "沈晓",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "丁刚",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "赵亭",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "张静",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
           target: "江梅梅",
           value: "指导教师",
         },
         {
-          source: "传艺承情",
-          target: "张悦",
+          source: "滁州学院",
+          target: "任丽颖",
           value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "郭华",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "张海洋",
+          value: "指导教师",
+        },
+        {
+          source: "滁州学院",
+          target: "张志远",
+          value: "指导教师",
+        },
+        {
+          source: "邓凯",
+          target: "COVID-19疫情多尺度智能监控与预警系统",
+          value: "指导作品",
+        },
+        {
+          source: "杨灿灿",
+          target: "COVID-19疫情多尺度智能监控与预警系统",
+          value: "指导作品",
+        },
+        {
+          source: "陈海宝",
+          target: "基于机器学习的恶意PE文件检测系统",
+          value: "指导作品",
+        },
+        {
+          source: "赵玉艳",
+          target: "基于机器学习的恶意PE文件检测系统",
+          value: "指导作品",
+        },
+        {
+          source: "李振洋",
+          target: "化茧成蝶",
+          value: "指导作品",
+        },
+        {
+          source: "撒后余",
+          target: "化茧成蝶",
+          value: "指导作品",
+        },
+        {
+          source: "施韵佳",
+          target: "锦绣金陵",
+          value: "指导作品",
+        },
+        {
+          source: "潘宏",
+          target: "锦绣金陵",
+          value: "指导作品",
+        },
+        {
+          source: "冷荣亮",
+          target: "髹漆成器",
+          value: "指导作品",
+        },
+        {
+          source: "冷荣亮",
+          target: "纸艺刻韵",
+          value: "指导作品",
+        },
+        {
+          source: "陈一笑",
+          target: "青铜器·铸",
+          value: "指导作品",
+        },
+        {
+          source: "叶涛",
+          target: "青铜器·铸",
+          value: "指导作品",
+        },
+        {
+          source: "李振洋",
+          target: "刻意江南",
+          value: "指导作品",
+        },
+        {
+          source: "施韵佳",
+          target: "刻意江南",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "中华原酿-薪火相传",
+          value: "指导作品",
+        },
+        {
+          source: "胡晓静",
+          target: "中华原酿-薪火相传",
+          value: "指导作品",
+        },
+        {
+          source: "赵亚飞",
+          target: "十二生肖",
+          value: "指导作品",
+        },
+        {
+          source: "张丽惠",
+          target: "十二生肖",
+          value: "指导作品",
+        },
+        {
+          source: "张悦",
+          target: "鼓起凤鸣",
+          value: "指导作品",
+        },
+        {
+          source: "甘翔",
+          target: "鼓起凤鸣",
+          value: "指导作品",
+        },
+        {
+          source: "左铁峰",
+          target: "洄锦充电桩",
+          value: "指导作品",
+        },
+        {
+          source: "吴玉",
+          target: "洄锦充电桩",
+          value: "指导作品",
+        },
+        {
+          source: "甘翔",
+          target: "如鱼得水——窗花造型直饮机设计",
+          value: "指导作品",
+        },
+        {
+          source: "叶涛",
+          target: "滁州十二景",
+          value: "指导作品",
+        },
+        {
+          source: "冷荣亮",
+          target: "滁州十二景",
+          value: "指导作品",
+        },
+        {
+          source: "朱金鑫",
+          target: "十二生肖数字插画",
+          value: "指导作品",
+        },
+        {
+          source: "刘国秀",
+          target: "泥土涅槃",
+          value: "指导作品",
+        },
+        {
+          source: "张巧云",
+          target: "泥土涅槃",
+          value: "指导作品",
+        },
+        {
+          source: "何君洁",
+          target: "醉翁亭与欧阳修系列故事",
+          value: "指导作品",
+        },
+        {
+          source: "于春燕",
+          target: "大话数据库之概念模型",
+          value: "指导作品",
+        },
+        {
+          source: "马良",
+          target: "大话数据库之概念模型",
+          value: "指导作品",
+        },
+        {
+          source: "徐志红",
+          target: "话说5G",
+          value: "指导作品",
+        },
+        {
+          source: "徐志红",
+          target: "话说5G",
+          value: "指导作品",
+        },
+        {
+          source: "陈芳",
+          target: "基于vue滁州市环境污染分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "刘国秀",
+          target: "基于vue滁州市环境污染分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "方纯",
+          target: "基于大数据的疫情数据分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "董再秀",
+          target: "基于大数据的疫情数据分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "赵生慧",
+          target: "基于Spark的国际足球数据分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "陈海宝",
+          target: "基于Spark的国际足球数据分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "郭雪燕",
+          target: "冬去春来",
+          value: "指导作品",
+        },
+        {
+          source: "董锐",
+          target: "冬去春来",
+          value: "指导作品",
+        },
+        {
+          source: "金亮",
+          target: "基于眼球定位的翻书系统",
+          value: "指导作品",
+        },
+        {
+          source: "温卫敏",
+          target: "基于眼球定位的翻书系统",
+          value: "指导作品",
+        },
+        {
+          source: "刘进军",
+          target: "SmartAgent基于AI的社区老人生活辅助系统",
+          value: "指导作品",
+        },
+        {
+          source: "赵亮",
+          target: "SmartAgent基于AI的社区老人生活辅助系统",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "AA-校园拼游网",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "AA-校园拼游网",
+          value: "指导作品",
+        },
+        {
+          source: "杨灿灿",
+          target: "安徽省县域农村精准扶贫空间分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "邓凯",
+          target: "安徽省县域农村精准扶贫空间分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "季璇",
+          target: "ResC资源回收服务系统",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "ResC资源回收服务系统",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "健康帮扶系统",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "健康帮扶系统",
+          value: "指导作品",
+        },
+        {
+          source: "孙勇",
+          target: "面向实时共享出行的网约车智能调度系统",
+          value: "指导作品",
+        },
+        {
+          source: "潘宏",
+          target: "色影·梦桥相会",
+          value: "指导作品",
+        },
+        {
+          source: "崔华国",
+          target: "色影·梦桥相会",
+          value: "指导作品",
+        },
+        {
+          source: "崔华国",
+          target: "晋中醯",
+          value: "指导作品",
+        },
+        {
+          source: "申思达",
+          target: "晋中醯",
+          value: "指导作品",
+        },
+        {
+          source: "潘宏",
+          target: "百年宏音-笙乐天成",
+          value: "指导作品",
+        },
+        {
+          source: "申思达",
+          target: "百年宏音-笙乐天成",
+          value: "指导作品",
+        },
+        {
+          source: "孙凯传",
+          target: "琅琊遇醉翁",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "琅琊遇醉翁",
+          value: "指导作品",
+        },
+        {
+          source: "郑娟",
+          target: "小城春节",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "小城春节",
+          value: "指导作品",
+        },
+        {
+          source: "邵雪梅",
+          target: "国学趣学",
+          value: "指导作品",
+        },
+        {
+          source: "孙凯传",
+          target: "国学趣学",
+          value: "指导作品",
+        },
+        {
+          source: "李玲纯",
+          target: "颂经典-扬文化",
+          value: "指导作品",
+        },
+        {
+          source: "高来鑫",
+          target: "颂经典-扬文化",
+          value: "指导作品",
+        },
+        {
+          source: "左铁峰",
+          target: "纸卷打印机",
+          value: "指导作品",
+        },
+        {
+          source: "吴玉",
+          target: "纸卷打印机",
+          value: "指导作品",
+        },
+        {
+          source: "金灿",
+          target: "车王村景观规划",
+          value: "指导作品",
+        },
+        {
+          source: "张珂",
+          target: "车王村景观规划",
+          value: "指导作品",
+        },
+        {
+          source: "叶涛",
+          target: "铜胎掐丝珐琅之美",
+          value: "指导作品",
+        },
+        {
+          source: "陈一笑",
+          target: "铜胎掐丝珐琅之美",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "南宋风华",
+          value: "指导作品",
+        },
+        {
+          source: "任倩",
+          target: "南宋风华",
+          value: "指导作品",
+        },
+        {
+          source: "方纯",
+          target: "从军行·其四赏析",
+          value: "指导作品",
+        },
+        {
+          source: "徐志红",
+          target: "从军行·其四赏析",
+          value: "指导作品",
+        },
+        {
+          source: "王玉亮",
+          target: "青少年管家--智能书桌系统",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "青少年管家--智能书桌系统",
+          value: "指导作品",
+        },
+        {
+          source: "吴豹",
+          target: "脑电控制的FeedingRobot",
+          value: "指导作品",
+        },
+        {
+          source: "温卫敏",
+          target: "脑电控制的FeedingRobot",
+          value: "指导作品",
+        },
+        {
+          source: "陈海宝",
+          target: "基于flask和ajax的糖尿病数据可视化平台",
+          value: "指导作品",
+        },
+        {
+          source: "陈杰",
+          target: "基于flask和ajax的糖尿病数据可视化平台",
+          value: "指导作品",
+        },
+        {
+          source: "马良",
+          target: "基于JavaWeb与ECharts的疫情数据可视化系统",
+          value: "指导作品",
+        },
+        {
+          source: "徐阳",
+          target: "基于JavaWeb与ECharts的疫情数据可视化系统",
+          value: "指导作品",
+        },
+        {
+          source: "沈晓",
+          target: "榫卯建筑·阴阳相生",
+          value: "指导作品",
+        },
+        {
+          source: "丁刚",
+          target: "榫卯建筑·阴阳相生",
+          value: "指导作品",
+        },
+        {
+          source: "赵玉艳",
+          target: "基于ELK和Kafka的Web日志实时分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "赵亭",
+          target: "基于ELK和Kafka的Web日志实时分析系统",
+          value: "指导作品",
+        },
+        {
+          source: "张静",
+          target: "星火",
+          value: "指导作品",
+        },
+        {
+          source: "郭雪艳",
+          target: "星火",
+          value: "指导作品",
+        },
+        {
+          source: "徐志红",
+          target: "小咕咚睡前故事屋",
+          value: "指导作品",
+        },
+        {
+          source: "刘竞遥",
+          target: "小咕咚睡前故事屋",
+          value: "指导作品",
+        },
+        {
+          source: "李振洋",
+          target: "雨霖铃",
+          value: "指导作品",
+        },
+        {
+          source: "陈一笑",
+          target: "雨霖铃",
+          value: "指导作品",
+        },
+        {
+          source: "冷荣亮",
+          target: "欧梅亭韵",
+          value: "指导作品",
+        },
+        {
+          source: "申思达",
+          target: "素釉·彩韵流芳",
+          value: "指导作品",
+        },
+        {
+          source: "潘宏",
+          target: "素釉·彩韵流芳",
+          value: "指导作品",
+        },
+        {
+          source: "朱金鑫",
+          target: "金石志",
+          value: "指导作品",
+        },
+        {
+          source: "申思达",
+          target: "金石志",
+          value: "指导作品",
+        },
+        {
+          source: "金灿",
+          target: "守艺",
+          value: "指导作品",
+        },
+        {
+          source: "吴玉",
+          target: "守艺",
+          value: "指导作品",
+        },
+        {
+          source: "江梅梅",
+          target: "传艺承情",
+          value: "指导作品",
+        },
+        {
+          source: "张悦",
+          target: "传艺承情",
+          value: "指导作品",
         },
       ],
       options1: [
         {
           value1: "选项1",
-          label1: "黄金糕",
+          label1: "院校",
         },
       ],
       options2: [
         {
           value2: "选项1",
-          label2: "黄金糕",
+          label2: "滁州学院",
         },
       ],
       options3: [
         {
           value3: "选项1",
-          label3: "黄金糕",
+          label3: "指导教师",
         },
       ],
       options4: [
         {
           value4: "选项1",
-          label4: "黄金糕",
+          label4: "全部",
         },
       ],
       options5: [
         {
           value5: "选项1",
-          label5: "黄金糕",
+          label5: "获奖作品",
         },
       ],
       options6: [
         {
           value6: "选项1",
-          label6: "黄金糕",
+          label6: "全部",
         },
       ],
       value1: "",
@@ -3893,7 +3998,7 @@ export default {
             //连线的样式
             lineStyle: {
               width: 2,
-              color: "#000",
+              color: "#AAF7DC6F",
             },
             //连线上的标记样式
             edgeLabel: {
